@@ -1,0 +1,291 @@
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>Snippets para crear BusinessServices</Title>
+    <Author>Gerardo Medina</Author>
+    <Shortcut>CrearBusinessServices</Shortcut>
+    <Description>Código para crear BusinessServices.</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>Entidad</ID>
+        <ToolTip>Nombre de la Entidad</ToolTip>
+        <Default>Nombre</Default>
+      </Literal>     
+    </Declarations>
+    <Code Language="csharp"> 
+        <![CDATA[
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Medusa.Generico.Business;
+
+namespace Medusa.Generico.Service
+{
+    /// <summary>
+    /// Servicio para Borrar $Entidad$
+    /// </summary>
+    
+    
+    class $Entidad$DeleteService : IBusinessService<$Entidad$, ResponseService<Int32>>
+    {
+        /// <summary>
+        /// Exposes accessor for the <see cref="IDaoFactory" /> used by all pages.
+        /// </summary>
+        public IDaoFactory DaoFactory
+        {
+            get
+            {
+                return (IDaoFactory)ContainerHelper.WindsorContainer()[typeof(IDaoFactory)];
+            }
+        }
+    
+        #region IBusinessService<$Entidad$,ResponseService<Int32>> Members
+
+        public ResponseService<Int32> Execute($Entidad$ pServiceRequest)
+        {
+            ResponseService<Int32> wRes = new ResponseService<Int32>();
+            try
+            {
+                $Entidad$Business _$Entidad$Business;
+                _$Entidad$Business = new $Entidad$Business(DaoFactory.Get$Entidad$Dao());
+                $Entidad$ my$Entidad$;
+                my$Entidad$ = Transformer$Entidad$.DTOToEntity(pServiceRequest);
+                _$Entidad$Business.Delete(my$Entidad$);
+                wRes.ServiceData = 1;
+            
+            
+                //wRes.ServiceData = $Entidad$BC.Delete(pServiceRequest);
+            }
+            catch (Exception ex)
+            {
+                wRes.ServiceError = new ServiceError(ex.Message, ex.Source, ex.StackTrace);
+            }
+            return wRes;
+        }
+
+        
+        #endregion
+    }
+    
+
+    /// <summary>
+    /// Servicio para agregar $Entidad$
+    /// </summary>
+    class $Entidad$SaveService : IBusinessService<$Entidad$, ResponseService<Int32>>
+    {
+        /// <summary>
+        /// Exposes accessor for the <see cref="IDaoFactory" /> used by all pages.
+        /// </summary>
+        public IDaoFactory DaoFactory
+        {
+            get
+            {
+                return (IDaoFactory)ContainerHelper.WindsorContainer()[typeof(IDaoFactory)];
+            }
+        }
+    
+        #region IBusinessService<$Entidad$,ResponseService<Int32>> Members
+
+        public ResponseService<Int32> Execute($Entidad$ pServiceRequest)
+        {
+            ResponseService<Int32> wRes = new ResponseService<Int32>();
+            try
+            {
+                $Entidad$Business _$Entidad$Business;
+                _$Entidad$Business = new $Entidad$Business(DaoFactory.Get$Entidad$Dao());
+                $Entidad$ my$Entidad$;
+                my$Entidad$ = Transformer$Entidad$.DTOToEntity(pServiceRequest);
+                _$Entidad$Business.Delete(my$Entidad$);
+                wRes.ServiceData = 1;
+                //wRes.ServiceData = $Entidad$BC.Save(pServiceRequest);
+            }
+            catch (Exception ex)
+            {
+                wRes.ServiceError = new ServiceError(ex.Message, ex.Source, ex.StackTrace);
+            }
+            return wRes;
+
+        }
+
+        #endregion
+    }
+    
+    
+    /// <summary>
+    /// Servicio para consultar $Entidad$ por atributos de la misma
+    /// </summary>
+    class $Entidad$GetByEntityService : IBusinessService<$Entidad$, ResponseService<List<$Entidad$>>>
+    {
+        /// <summary>
+        /// Exposes accessor for the <see cref="IDaoFactory" /> used by all pages.
+        /// </summary>
+        public IDaoFactory DaoFactory
+        {
+            get
+            {
+                return (IDaoFactory)ContainerHelper.WindsorContainer()[typeof(IDaoFactory)];
+            }
+        }
+    
+        #region IBusinessService<$Entidad$,ResponseService<List<$Entidad$>>> Members
+        public ResponseService<List<$Entidad$>> Execute($Entidad$ pServiceRequest)
+        {
+            ResponseService<List<$Entidad$>> wRes = new ResponseService<List<$Entidad$>>();
+            try
+            {
+                $Entidad$Business _$Entidad$Business;
+                _$Entidad$Business = new $Entidad$Business(DaoFactory.Get$Entidad$Dao());
+                $Entidad$ my$Entidad$;
+                my$Entidad$ = Transformer$Entidad$.DTOToEntity(pServiceRequest);
+                _$Entidad$Business.Delete(my$Entidad$);
+                wRes.ServiceData = 1;
+                //wRes.ServiceData = $Entidad$BC.GetByEntity(pServiceRequest);
+            }
+            catch (Exception ex)
+            {
+                wRes.ServiceError = new ServiceError(ex.Message, ex.Source, ex.StackTrace);
+            }
+            return wRes;
+
+
+        }
+        #endregion
+    }
+    
+    
+    /// <summary>
+    /// Servicio para consultar $Entidad$ por su ID
+    /// </summary>
+    class $Entidad$GetByIdService : IBusinessService<Int32, ResponseService<List<$Entidad$>>>
+    {
+        /// <summary>
+        /// Exposes accessor for the <see cref="IDaoFactory" /> used by all pages.
+        /// </summary>
+        public IDaoFactory DaoFactory
+        {
+            get
+            {
+                return (IDaoFactory)ContainerHelper.WindsorContainer()[typeof(IDaoFactory)];
+            }
+        }
+    
+        #region IBusinessService<Int32,ResponseService<List<$Entidad$>>> Members
+        public ResponseService<List<$Entidad$>> Execute(Int32 pServiceRequest)
+        {
+            ResponseService<List<$Entidad$>> wRes = new ResponseService<List<$Entidad$>>();
+            try
+            {
+                $Entidad$Business _$Entidad$Business;
+                _$Entidad$Business = new $Entidad$Business(DaoFactory.Get$Entidad$Dao());
+                $Entidad$ my$Entidad$;
+                my$Entidad$ = Transformer$Entidad$.DTOToEntity(pServiceRequest);
+                _$Entidad$Business.Delete(my$Entidad$);
+                wRes.ServiceData = 1;
+                //wRes.ServiceData = $Entidad$BC.GetById(pServiceRequest);
+            }
+            catch (Exception ex)
+            {
+                wRes.ServiceError = new ServiceError(ex.Message, ex.Source, ex.StackTrace);
+            }
+            return wRes;
+
+
+        }
+        #endregion
+    }
+    
+    
+    /// <summary>
+    /// Servicio para consultar $Entidad$ por su ID
+    /// </summary>
+    class $Entidad$GetAll : IBusinessService<Int32, ResponseService<List<$Entidad$>>>
+    {
+        /// <summary>
+        /// Exposes accessor for the <see cref="IDaoFactory" /> used by all pages.
+        /// </summary>
+        public IDaoFactory DaoFactory
+        {
+            get
+            {
+                return (IDaoFactory)ContainerHelper.WindsorContainer()[typeof(IDaoFactory)];
+            }
+        }
+    
+        #region IBusinessService<Int32,ResponseService<List<$Entidad$>>> Members
+        public ResponseService<List<$Entidad$>> Execute(Int32 pServiceRequest)
+        {
+            ResponseService<List<$Entidad$>> wRes = new ResponseService<List<$Entidad$>>();
+            try
+            {
+                $Entidad$Business _$Entidad$Business;
+                _$Entidad$Business = new $Entidad$Business(DaoFactory.Get$Entidad$Dao());
+                $Entidad$ my$Entidad$;
+                my$Entidad$ = Transformer$Entidad$.DTOToEntity(pServiceRequest);
+                _$Entidad$Business.Delete(my$Entidad$);
+                wRes.ServiceData = 1;
+                //wRes.ServiceData = $Entidad$BC.GetAll();
+            }
+            catch (Exception ex)
+            {
+                wRes.ServiceError = new ServiceError(ex.Message, ex.Source, ex.StackTrace);
+            }
+            return wRes;
+
+
+        }
+        #endregion
+    }
+    
+
+    /// <summary>
+    /// Servicio para modificar $Entidad$
+    /// </summary>
+    class $Entidad$UpdateService : IBusinessService<$Entidad$, ResponseService<Int32>>
+    {
+        /// <summary>
+        /// Exposes accessor for the <see cref="IDaoFactory" /> used by all pages.
+        /// </summary>
+        public IDaoFactory DaoFactory
+        {
+            get
+            {
+                return (IDaoFactory)ContainerHelper.WindsorContainer()[typeof(IDaoFactory)];
+            }
+        }
+    
+        #region IBusinessService<$Entidad$,ResponseService<Int32>> Members
+
+        public ResponseService<Int32> Execute($Entidad$ pServiceRequest)
+        {
+            ResponseService<Int32> wRes = new ResponseService<Int32>();
+            try
+            {
+                $Entidad$Business _$Entidad$Business;
+                _$Entidad$Business = new $Entidad$Business(DaoFactory.Get$Entidad$Dao());
+                $Entidad$ my$Entidad$;
+                my$Entidad$ = Transformer$Entidad$.DTOToEntity(pServiceRequest);
+                _$Entidad$Business.Delete(my$Entidad$);
+                wRes.ServiceData = 1;
+                //wRes.ServiceData = $Entidad$BC.Update(pServiceRequest);
+            }
+            catch (Exception ex)
+            {
+                wRes.ServiceError = new ServiceError(ex.Message, ex.Source, ex.StackTrace);
+            }
+            return wRes;
+
+        }
+
+        #endregion
+    }
+    
+
+}
+       ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>

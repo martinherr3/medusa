@@ -1,0 +1,22 @@
+<AppConfig>
+	<Servicios>
+		<Servicio>
+			<Descripcion>BuscarCliente</Descripcion>
+			<AssemblyRequest>Medusa.HC.Common.BE</AssemblyRequest>
+			<ClaseRequest>ClienteEntity</ClaseRequest>
+			<AssemblyResponse>Medusa.HC.Common.BE</AssemblyResponse>
+			<ClaseResponse>ClienteEntities</ClaseResponse>
+			<AssemblyHandler>Medusa.HC.BackEnd.Services</AssemblyHandler>
+			<ClaseHandler>ClienteSearchService</ClaseHandler>	
+		</Servicio>
+		<Servicio>
+			<Descripcion>BuscarCliente</Descripcion>
+			<AssemblyRequest>Medusa.HC.Common.BE</AssemblyRequest>
+			<ClaseRequest>ClienteEntity</ClaseRequest>
+			<AssemblyResponse>Medusa.HC.Common.BE</AssemblyResponse>
+			<ClaseResponse>ClienteEntities</ClaseResponse>
+			<AssemblyHandler>Medusa.HC.BackEnd.Services</AssemblyHandler>
+			<ClaseHandler>ClienteSearchService</ClaseHandler>	
+		</Servicio>
+	</Servicios>
+</AppConfig>

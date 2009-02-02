@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="Medusa.Architecture.ProcessManagement.ObjectProvider" Collapsed="true">
+    <Position X="0.5" Y="4.25" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>ObjectProvider.cs</FileName>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Medusa.Architecture.ProcessManagement.Xml.XmlProcessConfigurationManager" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>Xml\XmlProcessConfigurationManager.cs</FileName>
+      <HashCode>AAACAIAAQABAAAAAAAABAAAACAIAAAAABAEAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_XmlConfigSection" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Medusa.Architecture.ProcessManagement.Database.DatabaseProcessConfigurationManager" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>Database\DatabaseProcessConfigurationManager.cs</FileName>
+      <HashCode>AAACAIAAQAAAAAAAAAABAAAAAAAAAEAABQAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_DatabaseConfigSection" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Medusa.Architecture.ProcessManagement.Xml.XmlConfigSection" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>Xml\XmlConfigSection.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Medusa.Architecture.ProcessManagement.Database.DatabaseConfigSection" Collapsed="true">
+    <Position X="5.25" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>Database\DatabaseConfigSection.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+    </TypeIdentifier>
+    <InheritanceLine Type="System.Configuration.ConfigurationSection" ManuallyRouted="true">
+      <Path>
+        <Point X="8.25" Y="1.13" />
+        <Point X="8.25" Y="1.656" />
+        <Point X="6.25" Y="1.656" />
+        <Point X="6.25" Y="2.25" />
+      </Path>
+    </InheritanceLine>
+  </Class>
+  <Class Name="System.Configuration.ConfigurationSection" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Medusa.Architecture.ProcessManagement.ProcessConfigurationCollection" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>ProcessConfiguration.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Medusa.Architecture.ProcessManagement.ProcessConfiguration" Collapsed="true">
+    <Position X="0.5" Y="5" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>ProcessConfiguration.cs</FileName>
+      <HashCode>AAAAAIAAAMFoAAEAAAAAIAZABAAAgCIEAABAAQAAAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Medusa.Architecture.ProcessManagement.IProcessConfigurationManager" Collapsed="true">
+    <Position X="0.5" Y="1.25" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>IProcessConfigurationManager.cs</FileName>
+      <HashCode>AAACAIAAQAAAAAAAAAABAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+</ClassDiagram>
