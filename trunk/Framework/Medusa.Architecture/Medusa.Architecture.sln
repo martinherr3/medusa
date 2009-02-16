@@ -63,6 +63,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medusa.Architecture.MyBusin
 		{1336EEC7-87E6-4231-9C85-2A2F04D3E3BF} = {1336EEC7-87E6-4231-9C85-2A2F04D3E3BF}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medusa.Base.Core", "Medusa.Base.Core\Medusa.Base.Core.csproj", "{B90E7DBA-68E6-42FB-A07E-5B34A12A2EFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medusa.Base.Utils", "Medusa.Base.Utils\Medusa.Base.Utils.csproj", "{D975404E-281C-4280-A102-2AB9C25EBA96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -173,6 +177,26 @@ Global
 		{BB8625F1-6298-4F48-97E4-4DC388843A0A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB8625F1-6298-4F48-97E4-4DC388843A0A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{BB8625F1-6298-4F48-97E4-4DC388843A0A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B90E7DBA-68E6-42FB-A07E-5B34A12A2EFE}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{B90E7DBA-68E6-42FB-A07E-5B34A12A2EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B90E7DBA-68E6-42FB-A07E-5B34A12A2EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B90E7DBA-68E6-42FB-A07E-5B34A12A2EFE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B90E7DBA-68E6-42FB-A07E-5B34A12A2EFE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B90E7DBA-68E6-42FB-A07E-5B34A12A2EFE}.Release|.NET.ActiveCfg = Release|Any CPU
+		{B90E7DBA-68E6-42FB-A07E-5B34A12A2EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B90E7DBA-68E6-42FB-A07E-5B34A12A2EFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B90E7DBA-68E6-42FB-A07E-5B34A12A2EFE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B90E7DBA-68E6-42FB-A07E-5B34A12A2EFE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D975404E-281C-4280-A102-2AB9C25EBA96}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{D975404E-281C-4280-A102-2AB9C25EBA96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D975404E-281C-4280-A102-2AB9C25EBA96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D975404E-281C-4280-A102-2AB9C25EBA96}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D975404E-281C-4280-A102-2AB9C25EBA96}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D975404E-281C-4280-A102-2AB9C25EBA96}.Release|.NET.ActiveCfg = Release|Any CPU
+		{D975404E-281C-4280-A102-2AB9C25EBA96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D975404E-281C-4280-A102-2AB9C25EBA96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D975404E-281C-4280-A102-2AB9C25EBA96}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D975404E-281C-4280-A102-2AB9C25EBA96}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
