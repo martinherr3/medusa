@@ -1,7 +1,0 @@
-D:\Medusa\Framework\Framework\Medusa.Architecture\Asemblies\Medusa.Architecture.Xml.dll
-D:\Medusa\Framework\Framework\Medusa.Architecture\Asemblies\Medusa.Architecture.Xml.pdb
-D:\Medusa\Framework\Framework\Medusa.Architecture\Assemblies\Mds.Architecture.Xml.dll
-D:\Medusa\Framework\Framework\Medusa.Architecture\Assemblies\Mds.Architecture.Xml.pdb
-D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.Xml\obj\Debug\ResolveAssemblyReference.cache
-D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.Xml\obj\Debug\Mds.Architecture.Xml.dll
-D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.Xml\obj\Debug\Mds.Architecture.Xml.pdb
