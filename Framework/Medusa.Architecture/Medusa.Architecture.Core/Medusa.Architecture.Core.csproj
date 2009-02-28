@@ -8,8 +8,8 @@
     <ProjectGuid>{B90E7DBA-68E6-42FB-A07E-5B34A12A2EFE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Medusa.Base.Core</RootNamespace>
-    <AssemblyName>Medusa.Base.Core</AssemblyName>
+    <RootNamespace>Medusa.Architecture.Core</RootNamespace>
+    <AssemblyName>Medusa.Architecture.Core</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
