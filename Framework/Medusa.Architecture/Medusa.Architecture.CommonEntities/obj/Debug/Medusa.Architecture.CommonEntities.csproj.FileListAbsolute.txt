@@ -1,0 +1,7 @@
+D:\Medusa\Framework\Framework\Medusa.Architecture\Asemblies\Medusa.Architecture.CommonEntities.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Asemblies\Medusa.Architecture.CommonEntities.pdb
+D:\Medusa\Framework\Framework\Medusa.Architecture\Assemblies\Mds.Architecture.CommonEntities.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Assemblies\Mds.Architecture.CommonEntities.pdb
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.CommonEntities\obj\Debug\ResolveAssemblyReference.cache
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.CommonEntities\obj\Debug\Mds.Architecture.CommonEntities.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.CommonEntities\obj\Debug\Mds.Architecture.CommonEntities.pdb

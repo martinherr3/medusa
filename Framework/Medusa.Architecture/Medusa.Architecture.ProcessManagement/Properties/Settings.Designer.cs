@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Medusa.Architecture.ProcessManagement.Properties {
+namespace Mds.Architecture.ProcessManagement.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

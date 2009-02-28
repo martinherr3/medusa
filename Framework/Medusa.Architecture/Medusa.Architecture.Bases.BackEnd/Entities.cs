@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 
-namespace Medusa.Architecture.Bases.BackEnd
+namespace Mds.Architecture.Bases.BackEnd
 {
 	/// <summary>
 	/// Clase base que representa una lista genérica de entidades.

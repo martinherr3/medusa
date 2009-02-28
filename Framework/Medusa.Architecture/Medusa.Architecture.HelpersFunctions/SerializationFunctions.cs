@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 using System.Text;
 
-namespace Medusa.Architecture.HelpersFunctions
+namespace Mds.Architecture.HelpersFunctions
 {
 	/// <summary>
 	/// Esta clase ayuda con los problemas que tienen que ver

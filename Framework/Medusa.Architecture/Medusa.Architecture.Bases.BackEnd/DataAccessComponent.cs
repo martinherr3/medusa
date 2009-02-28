@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Medusa.Architecture.Bases.BackEnd
+namespace Mds.Architecture.Bases.BackEnd
 {
 	/// <summary>
 	/// Clase abstracta que debe ser heredada por las clases encargadas de controlar el acceso a datos.

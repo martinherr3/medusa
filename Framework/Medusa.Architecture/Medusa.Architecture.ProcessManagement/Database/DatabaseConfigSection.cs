@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Configuration;
 
-namespace Medusa.Architecture.ProcessManagement.Database
+namespace Mds.Architecture.ProcessManagement.Database
 {
 	/// <summary>
 	/// Sección de configuración para el administrador de configuración de procesos con repositorio en base de datos.

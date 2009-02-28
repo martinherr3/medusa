@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Medusa.Architecture.ProcessManagement
+namespace Mds.Architecture.ProcessManagement
 {
 	/// <summary>
 	/// Interfaz para clases que leer y escribir configuración de procesos de negocio.

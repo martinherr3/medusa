@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace Medusa.Architecture.ServiceInterfaceWrappers.ServiceInterface {
+namespace Mds.Architecture.ServiceInterfaceWrappers.ServiceInterface {
     using System.Diagnostics;
     using System.Web.Services;
     using System.ComponentModel;
@@ -35,7 +35,7 @@ namespace Medusa.Architecture.ServiceInterfaceWrappers.ServiceInterface {
         
         /// <remarks/>
         public Service() {
-            this.Url = global::Medusa.Architecture.ServiceInterfaceWrappers.Properties.Settings.Default.Medusa_Architecture_ServiceInterfaceWrappers_ServiceInterface_Service;
+            this.Url = global::Mds.Architecture.ServiceInterfaceWrappers.Properties.Settings.Default.Medusa_Architecture_ServiceInterfaceWrappers_ServiceInterface_Service;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;

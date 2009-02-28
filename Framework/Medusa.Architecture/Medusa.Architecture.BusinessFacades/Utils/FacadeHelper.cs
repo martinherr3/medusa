@@ -4,12 +4,12 @@ using System.Text;
 using System.Data;
 using System.Reflection;
 using System.Collections.Generic;
-using Medusa.Architecture.HelpersFunctions;
-using Medusa.Architecture.ProcessManagement;
-using Medusa.Architecture.Transaction;
+using Mds.Architecture.HelpersFunctions;
+using Mds.Architecture.ProcessManagement;
+using Mds.Architecture.Transaction;
 
 
-namespace Medusa.Architecture.BusinessFacades.Utils
+namespace Mds.Architecture.BusinessFacades.Utils
 {
 	/// <summary>
 	/// Enumeración que define el modo en que se aditará la ejecución del servicio.

@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Medusa.Architecture.HelpersFunctions;
+using Mds.Architecture.HelpersFunctions;
 
-namespace Medusa.Architecture.ProcessManagement
+namespace Mds.Architecture.ProcessManagement
 {
 
 	/// <summary>

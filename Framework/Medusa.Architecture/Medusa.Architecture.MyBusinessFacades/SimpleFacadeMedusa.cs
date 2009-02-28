@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Xml;
-using Medusa.Architecture.HelpersFunctions;
+using Mds.Architecture.HelpersFunctions;
 
-namespace Medusa.Architecture.MyBusinessFacades
+namespace Mds.Architecture.MyBusinessFacades
 {
     public class SimpleFacadeMedusa
     {

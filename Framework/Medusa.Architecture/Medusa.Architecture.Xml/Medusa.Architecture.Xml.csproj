@@ -7,8 +7,8 @@
     <ProjectGuid>{DEDF546D-3F42-4F46-AEA0-0825DD3CABBD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Medusa.Architecture.Xml</RootNamespace>
-    <AssemblyName>Medusa.Architecture.Xml</AssemblyName>
+    <RootNamespace>Mds.Architecture.Xml</RootNamespace>
+    <AssemblyName>Mds.Architecture.Xml</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>

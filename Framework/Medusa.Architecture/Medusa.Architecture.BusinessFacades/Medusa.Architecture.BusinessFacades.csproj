@@ -7,8 +7,8 @@
     <ProjectGuid>{1B79FACF-FA65-488A-877B-64DA0120843A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Medusa.Architecture.BusinessFacades</RootNamespace>
-    <AssemblyName>Medusa.Architecture.BusinessFacades</AssemblyName>
+    <RootNamespace>Mds.Architecture.BusinessFacades</RootNamespace>
+    <AssemblyName>Mds.Architecture.BusinessFacades</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -33,19 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Medusa.Architecture.Bases.BackEnd, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Mds.Architecture.Bases.BackEnd, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Mds.Architecture.HelpersFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Mds.Architecture.ProcessManagement, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Medusa.Architecture.Bases.BackEnd\bin\Debug\Medusa.Architecture.Bases.BackEnd.dll</HintPath>
+      <HintPath>..\Assemblies\Mds.Architecture.ProcessManagement.dll</HintPath>
     </Reference>
-    <Reference Include="Medusa.Architecture.HelpersFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Medusa.Architecture.ProcessManagement, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Medusa.Architecture.ProcessManagement\bin\Debug\Medusa.Architecture.ProcessManagement.dll</HintPath>
-    </Reference>
-    <Reference Include="Medusa.Architecture.Transaction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Medusa.Architecture.Transaction\bin\Debug\Medusa.Architecture.Transaction.dll</HintPath>
-    </Reference>
+    <Reference Include="Mds.Architecture.Transaction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />

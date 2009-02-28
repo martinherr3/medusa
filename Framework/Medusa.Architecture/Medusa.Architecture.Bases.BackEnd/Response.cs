@@ -2,9 +2,9 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Text;
-using Medusa.Architecture.Bases.BackEnd;
+using Mds.Architecture.Bases.BackEnd;
 
-namespace Medusa.Architecture.Bases.BackEnd
+namespace Mds.Architecture.Bases.BackEnd
 {
 	public abstract class Response<T> : IXMLDataCarrier
 		where T : System.Data.DataSet, new()

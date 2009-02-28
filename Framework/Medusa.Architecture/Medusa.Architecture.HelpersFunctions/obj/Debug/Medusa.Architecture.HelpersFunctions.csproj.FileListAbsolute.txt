@@ -1,0 +1,7 @@
+D:\Medusa\Framework\Framework\Medusa.Architecture\Asemblies\Medusa.Architecture.HelpersFunctions.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Asemblies\Medusa.Architecture.HelpersFunctions.pdb
+D:\Medusa\Framework\Framework\Medusa.Architecture\Assemblies\Mds.Architecture.HelpersFunctions.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Assemblies\Mds.Architecture.HelpersFunctions.pdb
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.HelpersFunctions\obj\Debug\ResolveAssemblyReference.cache
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.HelpersFunctions\obj\Debug\Mds.Architecture.HelpersFunctions.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.HelpersFunctions\obj\Debug\Mds.Architecture.HelpersFunctions.pdb

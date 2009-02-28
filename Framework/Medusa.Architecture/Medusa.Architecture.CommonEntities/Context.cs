@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Medusa.Architecture.CommonEntities
+namespace Mds.Architecture.CommonEntities
 {
     /// <summary>
     /// Define un contexto

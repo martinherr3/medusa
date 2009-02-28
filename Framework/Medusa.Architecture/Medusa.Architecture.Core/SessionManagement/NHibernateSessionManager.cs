@@ -6,9 +6,9 @@ using System.Web;
 using NHibernate;
 using NHibernate.Cache;
 using NHibernate.Cfg;
-using Medusa.Base.Utils;
+using Mds.Architecture.Utils;
 
-namespace Medusa.Architecture.Data
+namespace Mds.Architecture.Data
 {
     /// <summary>
     /// Handles creation and management of sessions and transactions.  It is a singleton because 

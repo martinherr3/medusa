@@ -7,8 +7,8 @@
     <ProjectGuid>{83FE62F6-0D1E-4D23-B752-58ECCE9BCC97}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Medusa.Architecture.ProcessManagement</RootNamespace>
-    <AssemblyName>Medusa.Architecture.ProcessManagement</AssemblyName>
+    <RootNamespace>Mds.Architecture.ProcessManagement</RootNamespace>
+    <AssemblyName>Mds.Architecture.ProcessManagement</AssemblyName>
     <PublishUrl>http://localhost/Medusa.Architecture.ProcessManagement/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
@@ -47,15 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Medusa.Architecture.HelpersFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Medusa.Architecture.Transaction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Medusa.Architecture.Transaction\bin\Debug\Medusa.Architecture.Transaction.dll</HintPath>
-    </Reference>
-    <Reference Include="Medusa.Architecture.Xml, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Medusa.Architecture.Xml\bin\Debug\Medusa.Architecture.Xml.dll</HintPath>
-    </Reference>
+    <Reference Include="Mds.Architecture.HelpersFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Mds.Architecture.Transaction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Mds.Architecture.Xml, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />

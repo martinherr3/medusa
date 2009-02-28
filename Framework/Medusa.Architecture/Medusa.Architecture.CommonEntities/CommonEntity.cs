@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.IO;
-using Medusa.Architecture.HelpersFunctions;
+using Mds.Architecture.HelpersFunctions;
 
-namespace Medusa.Architecture.CommonEntities
+namespace Mds.Architecture.CommonEntities
 {
     /// <summary>
     /// Clase base para las entidades.

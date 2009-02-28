@@ -3,7 +3,7 @@ using System.Text;
 using System.Configuration;
 using System.Collections.Generic;
 
-namespace Medusa.Architecture.Bases.BackEnd
+namespace Mds.Architecture.Bases.BackEnd
 {
     /// <summary>
     /// Table Data Gateway.

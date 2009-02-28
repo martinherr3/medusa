@@ -7,8 +7,8 @@
     <ProjectGuid>{E92BED40-D72A-43C4-A40C-DB29088A6B12}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Medusa.Architecture.CommonEntities</RootNamespace>
-    <AssemblyName>Medusa.Architecture.CommonEntities</AssemblyName>
+    <RootNamespace>Mds.Architecture.CommonEntities</RootNamespace>
+    <AssemblyName>Mds.Architecture.CommonEntities</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Medusa.Architecture.HelpersFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Mds.Architecture.HelpersFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />

@@ -1,0 +1,9 @@
+D:\Medusa\Framework\Framework\Medusa.Architecture\Asemblies\Medusa.Architecture.ServiceInterfaceWrappers.dll.config
+D:\Medusa\Framework\Framework\Medusa.Architecture\Asemblies\Medusa.Architecture.ServiceInterfaceWrappers.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Asemblies\Medusa.Architecture.ServiceInterfaceWrappers.pdb
+D:\Medusa\Framework\Framework\Medusa.Architecture\Assemblies\Mds.Architecture.ServiceInterfaceWrappers.dll.config
+D:\Medusa\Framework\Framework\Medusa.Architecture\Assemblies\Mds.Architecture.ServiceInterfaceWrappers.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Assemblies\Mds.Architecture.ServiceInterfaceWrappers.pdb
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.ServiceInterfaceWrappers\obj\Debug\ResolveAssemblyReference.cache
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.ServiceInterfaceWrappers\obj\Debug\Mds.Architecture.ServiceInterfaceWrappers.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.ServiceInterfaceWrappers\obj\Debug\Mds.Architecture.ServiceInterfaceWrappers.pdb

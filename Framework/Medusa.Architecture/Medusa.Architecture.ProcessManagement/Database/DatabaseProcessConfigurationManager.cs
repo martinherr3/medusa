@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Medusa.Architecture.Transaction;
+using Mds.Architecture.Transaction;
 using Datablock = Microsoft.Practices.EnterpriseLibrary.Data;
 
-namespace Medusa.Architecture.ProcessManagement.Database
+namespace Mds.Architecture.ProcessManagement.Database
 {
 	/// <summary>
 	/// Manejador de configuración de procesos que trabaja con una base de datos relacional como repositorio de configuración.

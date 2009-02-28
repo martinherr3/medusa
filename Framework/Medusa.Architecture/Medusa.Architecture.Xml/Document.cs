@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 
-namespace Medusa.Architecture.Xml
+namespace Mds.Architecture.Xml
 {
     /// <summary>
     /// Manejo de XmlDocument.

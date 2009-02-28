@@ -4,7 +4,7 @@ using System.Text;
 using Castle.Windsor;
 using Castle.Windsor.Configuration.Interpreters;
 
-namespace Medusa.Architecture.Utils
+namespace Mds.Architecture.Utils
 {
     public class ContainerHelper : IContainerAccessor, IDisposable
     {

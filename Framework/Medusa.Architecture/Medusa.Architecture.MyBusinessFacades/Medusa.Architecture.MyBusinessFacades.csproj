@@ -7,8 +7,8 @@
     <ProjectGuid>{BB8625F1-6298-4F48-97E4-4DC388843A0A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Medusa.Architecture.MyBusinessFacades</RootNamespace>
-    <AssemblyName>Medusa.Architecture.MyBusinessFacades</AssemblyName>
+    <RootNamespace>Mds.Architecture.MyBusinessFacades</RootNamespace>
+    <AssemblyName>Mds.Architecture.MyBusinessFacades</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Medusa.Architecture.HelpersFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Mds.Architecture.HelpersFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
