@@ -1,7 +1,7 @@
 using System.Configuration;
 using Configuration_StringValidator = System.Configuration.StringValidator;
 
-namespace Medusa.Base.Data
+namespace Medusa.Architecture.Data
 {
     public class SessionFactoryElement : ConfigurationElement
     {

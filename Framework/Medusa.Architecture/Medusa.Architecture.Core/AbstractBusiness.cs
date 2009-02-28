@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Medusa.Base.Data;
+using Medusa.Architecture.Data;
 using log4net;
 
-namespace Medusa.Base.Business
+namespace Medusa.Architecture.Business
 {
     public abstract class AbstractBusiness<TDao, TDomain, idTDomain> where TDao : IDao<TDomain, idTDomain>
     {

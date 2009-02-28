@@ -5,7 +5,7 @@ using NHibernate.Expression;
 using Medusa.Base.Utils;
 using log4net;
 
-namespace Medusa.Base.Data
+namespace Medusa.Architecture.Data
 {
     public abstract class AbstractNHibernateDao<T, IdT> : IDao<T, IdT>
     {
