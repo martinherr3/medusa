@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medusa.Architecture.Service
 		{1336EEC7-87E6-4231-9C85-2A2F04D3E3BF} = {1336EEC7-87E6-4231-9C85-2A2F04D3E3BF}
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Medusa.Architecture.ServiceInterface", "Medusa.Architecture.ServiceInterface", "{F74AB0E9-3F05-4448-B1AD-E107C8238F27}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Medusa.Architecture.ServiceInterface", "Medusa.Architecture.ServiceInterface\", "{F74AB0E9-3F05-4448-B1AD-E107C8238F27}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "2.0"
 		Debug.AspNetCompiler.VirtualPath = "/Medusa.Architecture.ServiceInterface"
@@ -36,7 +36,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Medusa.Architecture.Service
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "1473"
+		VWDPort = "1717"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
@@ -63,9 +63,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medusa.Architecture.MyBusin
 		{1336EEC7-87E6-4231-9C85-2A2F04D3E3BF} = {1336EEC7-87E6-4231-9C85-2A2F04D3E3BF}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medusa.Base.Core", "Medusa.Base.Core\Medusa.Base.Core.csproj", "{B90E7DBA-68E6-42FB-A07E-5B34A12A2EFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medusa.Architecture.Core", "Medusa.Architecture.Core\Medusa.Architecture.Core.csproj", "{B90E7DBA-68E6-42FB-A07E-5B34A12A2EFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medusa.Base.Utils", "Medusa.Base.Utils\Medusa.Base.Utils.csproj", "{D975404E-281C-4280-A102-2AB9C25EBA96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medusa.Architecture.Utils", "Medusa.Architecture.Utils\Medusa.Architecture.Utils.csproj", "{D975404E-281C-4280-A102-2AB9C25EBA96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
