@@ -3,7 +3,7 @@ using System.Configuration;
 using System.Web;
 using Medusa.Base.Utils;
 
-namespace Medusa.Base.Data
+namespace Medusa.Architecture.Data
 {
     /// <summary>
     /// Implements the Open-Session-In-View pattern using <see cref="NHibernateSessionManager" />.

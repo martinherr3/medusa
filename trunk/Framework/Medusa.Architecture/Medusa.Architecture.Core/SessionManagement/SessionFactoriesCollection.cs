@@ -1,6 +1,6 @@
 using System.Configuration;
 
-namespace Medusa.Base.Data
+namespace Medusa.Architecture.Data
 {
     [ConfigurationCollection(typeof(SessionFactoryElement))]
     public sealed class SessionFactoriesCollection : ConfigurationElementCollection

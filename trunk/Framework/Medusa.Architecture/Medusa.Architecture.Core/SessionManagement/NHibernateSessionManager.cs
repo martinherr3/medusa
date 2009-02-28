@@ -8,7 +8,7 @@ using NHibernate.Cache;
 using NHibernate.Cfg;
 using Medusa.Base.Utils;
 
-namespace Medusa.Base.Data
+namespace Medusa.Architecture.Data
 {
     /// <summary>
     /// Handles creation and management of sessions and transactions.  It is a singleton because 
