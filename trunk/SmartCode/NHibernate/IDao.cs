@@ -27,7 +27,7 @@ namespace NHibernateTemplates
             WriteLine(@"using System;");
             WriteLine(@"using System.Collections.Generic;");
             W();
-            WriteLine(@"namespace {0}.Core.DataInterfaces", Helper.PascalCase(Domain.Code));
+            WriteLine(@"namespace {0}.Architecture.DataInterfaces", Helper.PascalCase(Domain.Code));
 
             WriteLine(@"{");
             WriteLine(@"    public interface IDao<T, IdT>");

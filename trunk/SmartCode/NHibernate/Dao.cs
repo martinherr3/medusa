@@ -29,8 +29,9 @@ namespace NHibernateTemplates
             {
                 WriteLine(@"using System;");
                 WriteLine(@"using System.Collections.Generic;");
+                WriteLine(@"using Mds.Architecture.Data", Helper.PascalCase(Domain.Code));
                 WriteLine(@"using {0}.Core.DataInterfaces;", Helper.PascalCase(Domain.Code));
-                WriteLine(@"using {0}.Core.Domain;", Helper.PascalCase(Domain.Code));
+                WriteLine(@"using {0}.Domain;", Helper.PascalCase(Domain.Code));
                 W();
                 WriteLine(@"namespace {0}.Data", Helper.PascalCase(Domain.Code));
 
