@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Expression;
 using Medusa.Base.Utils;
+using log4net;
 
 namespace Medusa.Base.Data
 {
     public abstract class AbstractNHibernateDao<T, IdT> : IDao<T, IdT>
     {
+        private Type persitentType = typeof(T);
+        protected readonly string SessionFactoryConfigPath;
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().GetType());
+
+        public static ILog Log
+        {
+            get { return AbstractNHibernateDao<T, IdT>.log; }
+        } 
+
         /// <param name="sessionFactoryConfigPath">Fully qualified path of the session factory's config file</param>
         public AbstractNHibernateDao(string sessionFactoryConfigPath) {
             Check.Require(! string.IsNullOrEmpty(sessionFactoryConfigPath),
@@ -132,7 +142,6 @@ namespace Medusa.Base.Data
             }
         }
 
-        private Type persitentType = typeof(T);
-        protected readonly string SessionFactoryConfigPath;
+
     }
 }

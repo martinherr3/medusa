@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using Medusa.Base.Data;
+using log4net;
 
 namespace Medusa.Base.Business
 {
     public abstract class AbstractBusiness<TDao, TDomain, idTDomain> where TDao : IDao<TDomain, idTDomain>
     {
-        public TDao dao;
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().GetType());
+        private TDao dao;
 
         public AbstractBusiness(TDao pdao)
         {
@@ -22,6 +24,16 @@ namespace Medusa.Base.Business
         public TDomain GetById(idTDomain id)
         {
             return dao.GetById(id, true);
+        }
+
+        /// <summary>
+        /// Get one entity by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public TDomain GetById(idTDomain id, bool shouldLock)
+        {
+            return dao.GetById(id, shouldLock);
         }
 
         /// <summary>
@@ -70,5 +82,15 @@ namespace Medusa.Base.Business
             dao.CommitChanges();
         }
 
+        public static ILog Log
+        {
+            get { return AbstractBusiness<TDao, TDomain, idTDomain>.log; }
+        }
+
+        public TDao Dao
+        {
+            get { return dao; }
+            set { dao = value; }
+        }
     }
 }
