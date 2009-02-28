@@ -5,13 +5,13 @@ using System.Text;
 using System.Resources;
 using System.Reflection;
 using System.Collections;
-using Medusa.Architecture.Bases.BackEnd;
-using Medusa.Architecture.BusinessFacades.Utils;
-using Medusa.Architecture.ProcessManagement;
+using Mds.Architecture.Bases.BackEnd;
+using Mds.Architecture.BusinessFacades.Utils;
+using Mds.Architecture.ProcessManagement;
 using Microsoft.Practices.EnterpriseLibrary.Caching;
 using Microsoft.Practices.EnterpriseLibrary.Caching.Expirations;
 
-namespace Medusa.Architecture.BusinessFacades
+namespace Mds.Architecture.BusinessFacades
 {
 
 	/// <summary>

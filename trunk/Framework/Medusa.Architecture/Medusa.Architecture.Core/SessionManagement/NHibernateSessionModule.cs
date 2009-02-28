@@ -1,9 +1,9 @@
 using System;
 using System.Configuration;
 using System.Web;
-using Medusa.Base.Utils;
+using Mds.Architecture.Utils;
 
-namespace Medusa.Architecture.Data
+namespace Mds.Architecture.Data
 {
     /// <summary>
     /// Implements the Open-Session-In-View pattern using <see cref="NHibernateSessionManager" />.

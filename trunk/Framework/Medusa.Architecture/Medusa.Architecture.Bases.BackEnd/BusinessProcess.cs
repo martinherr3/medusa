@@ -3,7 +3,7 @@ using System.Data;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Medusa.Architecture.Bases.BackEnd
+namespace Mds.Architecture.Bases.BackEnd
 {
 	/// <summary>
 	/// Clase base que representa un proceso de negocio abstracto. Es la clase de la que deben heredar todas aquellas clases que sean implementaciones de procesos de negocio.

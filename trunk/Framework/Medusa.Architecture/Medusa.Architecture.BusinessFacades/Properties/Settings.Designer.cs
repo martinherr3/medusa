@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Medusa.Architecture.BusinessFacades.Properties {
+namespace Mds.Architecture.BusinessFacades.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

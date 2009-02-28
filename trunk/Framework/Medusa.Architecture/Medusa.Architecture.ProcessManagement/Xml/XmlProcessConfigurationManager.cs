@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
-using Medusa.Architecture.HelpersFunctions;
-using Medusa.Architecture.Transaction;
-using Medusa.Architecture.Xml;
+using Mds.Architecture.HelpersFunctions;
+using Mds.Architecture.Transaction;
+using Mds.Architecture.Xml;
 
-namespace Medusa.Architecture.ProcessManagement.Xml
+namespace Mds.Architecture.ProcessManagement.Xml
 {
 	/// <summary>
 	/// Manejador de configuración de procesos que trabaja con un archivo XML como repositorio de configuración.

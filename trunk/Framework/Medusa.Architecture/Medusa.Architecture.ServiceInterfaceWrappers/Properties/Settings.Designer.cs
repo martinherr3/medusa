@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Medusa.Architecture.ServiceInterfaceWrappers.Properties {
+namespace Mds.Architecture.ServiceInterfaceWrappers.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

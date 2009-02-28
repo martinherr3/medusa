@@ -7,8 +7,8 @@
     <ProjectGuid>{64334E03-7786-40C1-8E4B-F00E07F2546F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Medusa.Architecture.Bases.BackEnd</RootNamespace>
-    <AssemblyName>Medusa.Architecture.Bases.BackEnd</AssemblyName>
+    <RootNamespace>Mds.Architecture.Bases.BackEnd</RootNamespace>
+    <AssemblyName>Mds.Architecture.Bases.BackEnd</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Medusa.Architecture.HelpersFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Mds.Architecture.HelpersFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />

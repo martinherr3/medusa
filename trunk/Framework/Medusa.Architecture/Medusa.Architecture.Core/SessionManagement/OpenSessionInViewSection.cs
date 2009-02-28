@@ -1,6 +1,6 @@
 using System.Configuration;
 
-namespace Medusa.Architecture.Data
+namespace Mds.Architecture.Data
 {
     /// <summary>
     /// Encapsulates a section of Web/App.config to declare which session factories are to be created.

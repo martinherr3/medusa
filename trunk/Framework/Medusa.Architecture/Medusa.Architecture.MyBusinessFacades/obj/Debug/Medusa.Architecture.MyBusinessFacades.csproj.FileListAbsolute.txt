@@ -1,0 +1,7 @@
+D:\Medusa\Framework\Framework\Medusa.Architecture\Asemblies\Medusa.Architecture.MyBusinessFacades.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Asemblies\Medusa.Architecture.MyBusinessFacades.pdb
+D:\Medusa\Framework\Framework\Medusa.Architecture\Assemblies\Mds.Architecture.MyBusinessFacades.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Assemblies\Mds.Architecture.MyBusinessFacades.pdb
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.MyBusinessFacades\obj\Debug\ResolveAssemblyReference.cache
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.MyBusinessFacades\obj\Debug\Mds.Architecture.MyBusinessFacades.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.MyBusinessFacades\obj\Debug\Mds.Architecture.MyBusinessFacades.pdb

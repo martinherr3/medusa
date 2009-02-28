@@ -4,7 +4,7 @@ using System.Text;
 using System.Data;
 using System.Reflection;
 
-namespace Medusa.Architecture.Utils
+namespace Mds.Architecture.Utils
 {
     public class BindingHelper
     {

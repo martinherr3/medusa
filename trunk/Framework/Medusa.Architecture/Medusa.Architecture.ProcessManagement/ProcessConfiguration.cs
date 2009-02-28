@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
-using Medusa.Architecture.Transaction;
+using Mds.Architecture.Transaction;
 
-namespace Medusa.Architecture.ProcessManagement
+namespace Mds.Architecture.ProcessManagement
 {
 	/// <summary>
 	/// Collección de configuraciones de procesos de negocio.

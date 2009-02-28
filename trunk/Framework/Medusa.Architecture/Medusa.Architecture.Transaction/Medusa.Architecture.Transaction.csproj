@@ -7,8 +7,8 @@
     <ProjectGuid>{73DBBE5F-BC3A-48EC-BC78-AAD28A8C6F87}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Medusa.Architecture.Transaction</RootNamespace>
-    <AssemblyName>Medusa.Architecture.Transaction</AssemblyName>
+    <RootNamespace>Mds.Architecture.Transaction</RootNamespace>
+    <AssemblyName>Mds.Architecture.Transaction</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>

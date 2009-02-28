@@ -7,8 +7,8 @@
     <ProjectGuid>{BBE45E1F-8691-4196-B1FF-A47CD9E9CD53}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Medusa.Architecture.ServiceInterfaceWrappers</RootNamespace>
-    <AssemblyName>Medusa.Architecture.ServiceInterfaceWrappers</AssemblyName>
+    <RootNamespace>Mds.Architecture.ServiceInterfaceWrappers</RootNamespace>
+    <AssemblyName>Mds.Architecture.ServiceInterfaceWrappers</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Medusa.Architecture.HelpersFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Mds.Architecture.HelpersFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.EnterpriseServices" />

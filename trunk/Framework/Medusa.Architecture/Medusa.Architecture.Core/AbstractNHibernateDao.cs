@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Expression;
-using Medusa.Base.Utils;
+using Mds.Architecture.Utils;
 using log4net;
 
-namespace Medusa.Architecture.Data
+namespace Mds.Architecture.Data
 {
     public abstract class AbstractNHibernateDao<T, IdT> : IDao<T, IdT>
     {

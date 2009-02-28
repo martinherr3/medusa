@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Medusa.Architecture.Transaction
+namespace Mds.Architecture.Transaction
 {
 	/// <summary>
 	/// Define el comportamiento del ámbito transaccional.

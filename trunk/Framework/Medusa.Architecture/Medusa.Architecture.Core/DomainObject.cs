@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Medusa.Base.Utils;
+using Mds.Architecture.Utils;
 
-namespace Medusa.Architecture.Domain
+namespace Mds.Architecture.Domain
 {
     /// <summary>
     /// For a discussion of this object, see 

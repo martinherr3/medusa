@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
 
-namespace Medusa.Architecture.Utils
+namespace Mds.Architecture.Utils
 {
     /// <summary>
     /// Design By Contract Checks.

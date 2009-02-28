@@ -1,9 +1,9 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-using Medusa.Architecture.HelpersFunctions;
+using Mds.Architecture.HelpersFunctions;
 
-namespace Medusa.Architecture.ServiceInterfaceWrappers
+namespace Mds.Architecture.ServiceInterfaceWrappers
 {
 
 	/// <summary>

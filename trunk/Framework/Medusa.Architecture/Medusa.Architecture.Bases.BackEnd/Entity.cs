@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Medusa.Architecture.HelpersFunctions;
+using Mds.Architecture.HelpersFunctions;
 using System.Data;
 using System.Reflection;
 using System.IO;
 
-namespace Medusa.Architecture.Bases.BackEnd
+namespace Mds.Architecture.Bases.BackEnd
 {
 	/// <summary>
 	/// Clase base que representa una entidad.

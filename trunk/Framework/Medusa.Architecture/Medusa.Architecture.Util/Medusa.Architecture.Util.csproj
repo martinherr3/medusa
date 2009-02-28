@@ -8,8 +8,8 @@
     <ProjectGuid>{4FE666C7-7DF2-4C88-8BA6-9F172B89978C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Medusa.Architecture.Util</RootNamespace>
-    <AssemblyName>Medusa.Architecture.Util</AssemblyName>
+    <RootNamespace>Mds.Architecture.Util</RootNamespace>
+    <AssemblyName>Mds.Architecture.Util</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>Svn</SccProjectName>

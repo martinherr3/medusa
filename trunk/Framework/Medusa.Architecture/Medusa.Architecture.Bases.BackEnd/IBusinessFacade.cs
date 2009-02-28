@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Medusa.Architecture.Bases.BackEnd
+namespace Mds.Architecture.Bases.BackEnd
 {
 	/// <summary>
 	/// Interfaz para clases que ejecutan un proceso de negocio.

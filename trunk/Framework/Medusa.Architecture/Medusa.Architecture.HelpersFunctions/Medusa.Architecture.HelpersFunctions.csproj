@@ -7,8 +7,8 @@
     <ProjectGuid>{1336EEC7-87E6-4231-9C85-2A2F04D3E3BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Medusa.Architecture.HelpersFunctions</RootNamespace>
-    <AssemblyName>Medusa.Architecture.HelpersFunctions</AssemblyName>
+    <RootNamespace>Mds.Architecture.HelpersFunctions</RootNamespace>
+    <AssemblyName>Mds.Architecture.HelpersFunctions</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>

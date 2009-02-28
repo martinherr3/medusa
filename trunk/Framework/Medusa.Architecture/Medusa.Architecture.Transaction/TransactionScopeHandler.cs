@@ -4,7 +4,7 @@ using System.Text;
 using SysTrans = System.Transactions;
 
 
-namespace Medusa.Architecture.Transaction
+namespace Mds.Architecture.Transaction
 {
 
 
@@ -144,7 +144,7 @@ namespace Medusa.Architecture.Transaction
 		/// <author>gmedina</author>
 		public TransactionScopeHandler()
 		{
-			ConfigureScope((TransactionalBehaviour)Enum.Parse(typeof(TransactionalBehaviour), Properties.Settings.Default.TransactionalBehaviour), (IsolationLevel)Enum.Parse(typeof(IsolationLevel), Properties.Settings.Default.IsolationLevel), Properties.Settings.Default.Timeout);
+			ConfigureScope((TransactionalBehaviour)Enum.Parse(typeof(TransactionalBehaviour), Mds.Architecture.Transaction.Properties.Settings.Default.TransactionalBehaviour), (IsolationLevel)Enum.Parse(typeof(IsolationLevel), Properties.Settings.Default.IsolationLevel), Properties.Settings.Default.Timeout);
 		}
 
 

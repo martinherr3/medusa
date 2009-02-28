@@ -1,0 +1,9 @@
+D:\Medusa\Framework\Framework\Medusa.Architecture\Asemblies\Medusa.Architecture.Transaction.dll.config
+D:\Medusa\Framework\Framework\Medusa.Architecture\Asemblies\Medusa.Architecture.Transaction.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Asemblies\Medusa.Architecture.Transaction.pdb
+D:\Medusa\Framework\Framework\Medusa.Architecture\Assemblies\Mds.Architecture.Transaction.dll.config
+D:\Medusa\Framework\Framework\Medusa.Architecture\Assemblies\Mds.Architecture.Transaction.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Assemblies\Mds.Architecture.Transaction.pdb
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.Transaction\obj\Debug\ResolveAssemblyReference.cache
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.Transaction\obj\Debug\Mds.Architecture.Transaction.dll
+D:\Medusa\Framework\Framework\Medusa.Architecture\Medusa.Architecture.Transaction\obj\Debug\Mds.Architecture.Transaction.pdb
