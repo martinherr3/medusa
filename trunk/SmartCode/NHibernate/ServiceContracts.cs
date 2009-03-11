@@ -46,51 +46,51 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"    {");
                 if (primaryKeyColumns.Count > 1)
                 {
-                    WriteLine(@"    [OperationContract]");
-                    WriteLine(@"    [UseNHibernateDataContractSerializer]");
-                    WriteLine(@"    {0} GetById({1}.DomainObjectID id);", primaryKeyColumns[0].NetDataType, Helper.MakeSingle(Entity.Code));
+                    WriteLine(@"        [OperationContract]");
+                    WriteLine(@"        [UseNHibernateDataContractSerializer]");
+                    WriteLine(@"        {0} GetById({1}.DomainObjectID id);", primaryKeyColumns[0].NetDataType, Helper.MakeSingle(Entity.Code));
                     WriteLine(@"");
-                    WriteLine(@"    [OperationContract]");
-                    WriteLine(@"    [UseNHibernateDataContractSerializer]");
-                    WriteLine(@"    {0} GetByIdLock({1}.DomainObjectID id, bool shouldLock);", primaryKeyColumns[0].NetDataType, Helper.MakeSingle(Entity.Code));
+                    WriteLine(@"        [OperationContract]");
+                    WriteLine(@"        [UseNHibernateDataContractSerializer]");
+                    WriteLine(@"        {0} GetByIdLock({1}.DomainObjectID id, bool shouldLock);", primaryKeyColumns[0].NetDataType, Helper.MakeSingle(Entity.Code));
                     WriteLine(@"");
                 }
                 else
                 {
-                    WriteLine(@"    [OperationContract]");
-                    WriteLine(@"    [UseNHibernateDataContractSerializer]");
-                    WriteLine(@"    {0} GetById({1} id);", Helper.MakeSingle(Entity.Code), primaryKeyColumns[0].NetDataType);
+                    WriteLine(@"        [OperationContract]");
+                    WriteLine(@"        [UseNHibernateDataContractSerializer]");
+                    WriteLine(@"        {0} GetById({1} id);", Helper.MakeSingle(Entity.Code), primaryKeyColumns[0].NetDataType);
                     WriteLine(@"");
-                    WriteLine(@"    [OperationContract]");
-                    WriteLine(@"    [UseNHibernateDataContractSerializer]");
-                    WriteLine(@"    {0} GetByIdLock({1} id, bool shouldLock);", Helper.MakeSingle(Entity.Code), primaryKeyColumns[0].NetDataType);
+                    WriteLine(@"        [OperationContract]");
+                    WriteLine(@"        [UseNHibernateDataContractSerializer]");
+                    WriteLine(@"        {0} GetByIdLock({1} id, bool shouldLock);", Helper.MakeSingle(Entity.Code), primaryKeyColumns[0].NetDataType);
                     WriteLine(@"");
 
                 }
 
-                WriteLine(@"    [OperationContract]");
-                WriteLine(@"    [UseNHibernateDataContractSerializer]");
-                WriteLine(@"    IList<{0}> GetAll();", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        [OperationContract]");
+                WriteLine(@"        [UseNHibernateDataContractSerializer]");
+                WriteLine(@"        IList<{0}> GetAll();", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"");
 
-                WriteLine(@"    [OperationContract]");
-                WriteLine(@"    [UseNHibernateDataContractSerializer]");
-                WriteLine(@"    IList<{0}> Find(String criteria);", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        [OperationContract]");
+                WriteLine(@"        [UseNHibernateDataContractSerializer]");
+                WriteLine(@"        IList<{0}> Find(String criteria);", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"");
 
-                WriteLine(@"    [OperationContract]");
-                WriteLine(@"    [UseNHibernateDataContractSerializer]");
-                WriteLine(@"    {0} Insert({0} entity);", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        [OperationContract]");
+                WriteLine(@"        [UseNHibernateDataContractSerializer]");
+                WriteLine(@"        {0} Insert({0} entity);", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"");
 
-                WriteLine(@"    [OperationContract]");
-                WriteLine(@"    [UseNHibernateDataContractSerializer]");
-                WriteLine(@"    void Delete({0} entity);", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        [OperationContract]");
+                WriteLine(@"        [UseNHibernateDataContractSerializer]");
+                WriteLine(@"        void Delete({0} entity);", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"");
 
-                WriteLine(@"    [OperationContract]");
-                WriteLine(@"    [UseNHibernateDataContractSerializer]");
-                WriteLine(@"    {0} Update({0} entity);", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        [OperationContract]");
+                WriteLine(@"        [UseNHibernateDataContractSerializer]");
+                WriteLine(@"        {0} Update({0} entity);", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"");
 
                 WriteLine(@"");
