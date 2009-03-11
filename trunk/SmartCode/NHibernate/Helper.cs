@@ -33,7 +33,7 @@ namespace NHibernateTemplates
 
         public static string PascalCase(string name)
         {
-            string output = CleanName(name);
+            string output = name; //CleanName(name);
             return char.ToUpper(output[0]) + output.Substring(1);
         }
 
