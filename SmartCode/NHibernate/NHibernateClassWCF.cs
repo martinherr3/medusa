@@ -33,7 +33,7 @@ namespace NHibernateTemplates
                 WriteLine(@"using System.Runtime.Serialization;");
                 WriteLine(@"using System.ServiceModel;");
                 WriteLine(@"using System.Text;");
-                WriteLine(@"System.Collections.ObjectModel;");
+                WriteLine(@"using System.Collections.ObjectModel;");
                 WriteLine(@"using Mds.Architecture.Domain;");
                 WriteLine(@"");
                 WriteLine(@"namespace {0}.Domain", Helper.PascalCase(Project.Code));
@@ -202,14 +202,14 @@ namespace NHibernateTemplates
 
                 foreach (ColumnSchema column in Table.NoPrimaryKeyColumns())
                 {
-                    WriteLine("[DataMember]");
+                    WriteLine("        [DataMember]");
                     if (Helper.IsNullableType(column) && column.NetDataType != "System.Byte[]")
-                        WriteLine("         public virtual " + column.NetDataType + "? " + Helper.PascalCase(column.Code) + " {");
+                        WriteLine("        public virtual " + column.NetDataType + "? " + Helper.PascalCase(column.Code) + " {");
                     else
-                        WriteLine("         public virtual " + column.NetDataType + " " + Helper.PascalCase(column.Code) + " {");
-                    WriteLine("             get { return _" + Helper.PascalCase(column.Code) + "; }");
-                    WriteLine("             set { _" + Helper.PascalCase(column.Code) + " = value;}");
-                    WriteLine("         }");
+                        WriteLine("        public virtual " + column.NetDataType + " " + Helper.PascalCase(column.Code) + " {");
+                    WriteLine("            get { return _" + Helper.PascalCase(column.Code) + "; }");
+                    WriteLine("            set { _" + Helper.PascalCase(column.Code) + " = value;}");
+                    WriteLine("        }");
                     W();
                 }
 
@@ -217,13 +217,13 @@ namespace NHibernateTemplates
                 {
                     foreach (ReferenceJoin join in inReference.Joins)
                     {
-                        WriteLine("[DataMember]");
+                        WriteLine("        [DataMember]");
                         string propertyName = Helper.PascalCase(join.ChildColumn.Code + "Lookup");
 
-                        WriteLine("         public virtual " + Helper.ClassName(inReference.ParentTable.Code) + " " + propertyName + "{");
-                        WriteLine("             get { return _" + propertyName + "; }");
-                        WriteLine("             set { _" + propertyName + " = value;}");
-                        WriteLine("         }");
+                        WriteLine("        public virtual " + Helper.ClassName(inReference.ParentTable.Code) + " " + propertyName + "{");
+                        WriteLine("            get { return _" + propertyName + "; }");
+                        WriteLine("            set { _" + propertyName + " = value;}");
+                        WriteLine("        }");
                         W();
                     }
                 }
@@ -234,10 +234,11 @@ namespace NHibernateTemplates
 
                     if (!Helper.IsManyToManyTable(childTable))
                     {
-                        WriteLine("         public virtual ReadOnlyCollection<" + Helper.ClassName(childTable.Code) + "> " + Helper.MakePlural(childTable.Code) + "{");
-                        WriteLine("             get { return new ReadOnlyCollection<" + Helper.ClassName(childTable.Code) + ">(_" + Helper.MakePlural(childTable.Code) + "); }");
-                        WriteLine("             set { _" + Helper.MakePlural(childTable.Code) + " = value; }");
-                        WriteLine("         }");
+                        WriteLine("        [DataMember]");
+                        WriteLine("        public virtual ReadOnlyCollection<" + Helper.ClassName(childTable.Code) + "> " + Helper.MakePlural(childTable.Code) + "{");
+                        WriteLine("            get { return new ReadOnlyCollection<" + Helper.ClassName(childTable.Code) + ">(_" + Helper.MakePlural(childTable.Code) + "); }");
+                        WriteLine("            set { _" + Helper.MakePlural(childTable.Code) + " = value; }");
+                        WriteLine("        }");
                         W();
 
                     }
@@ -249,10 +250,12 @@ namespace NHibernateTemplates
                         {
                             parentSchema = childTable.InReferences[0];
                         }
-                        WriteLine("         public virtual ReadOnlyCollection<" + Helper.ClassName(childTable.Code) + "> " + Helper.MakePlural(parentSchema.ParentTable.Code) + "{");
-                        WriteLine("             get { return ReadOnlyCollection<" + Helper.ClassName(childTable.Code) + ">(_" + Helper.MakePlural(parentSchema.ParentTable.Code) + "); }");
-                        WriteLine("             set { _" + Helper.MakePlural(parentSchema.ParentTable.Code) + " = value; }");
-                        WriteLine("         }");
+
+                        WriteLine("        [DataMember]");
+                        WriteLine("        public virtual ReadOnlyCollection<" + Helper.ClassName(childTable.Code) + "> " + Helper.MakePlural(parentSchema.ParentTable.Code) + "{");
+                        WriteLine("            get { return ReadOnlyCollection<" + Helper.ClassName(childTable.Code) + ">(_" + Helper.MakePlural(parentSchema.ParentTable.Code) + "); }");
+                        WriteLine("            set { _" + Helper.MakePlural(parentSchema.ParentTable.Code) + " = value; }");
+                        WriteLine("        }");
                         W();
 
                     }
