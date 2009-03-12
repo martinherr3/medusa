@@ -55,6 +55,11 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"");
                 WriteLine(@"        #region I{0}Service Members", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"");
+                WriteLine(@"        /// </summary>");
+                WriteLine(@"        /// Obtiene un {0} por id", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        /// </summary>");
+                WriteLine(@"        /// <param name=id></param>");
+                WriteLine(@"        /// <returns></returns>");
                 WriteLine(@"        public {0} GetById(int id)", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"        {");
                 WriteLine(@"            try");
@@ -69,6 +74,12 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            return null;");
                 WriteLine(@"        }");
                 WriteLine(@"");
+                WriteLine(@"        /// </summary>");
+                WriteLine(@"        /// Obtiene un {0} por id y bloquea el registro", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        /// </summary>");
+                WriteLine(@"        /// <param name=id></param>");
+                WriteLine(@"        /// <param name=shouldLock></param>");
+                WriteLine(@"        /// <returns></returns>");
                 WriteLine(@"        public {0} GetByIdLock(int id, bool shouldLock)", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"        {");
                 WriteLine(@"            try");
@@ -83,6 +94,10 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            return null;");
                 WriteLine(@"        }");
                 WriteLine(@"");
+                WriteLine(@"        /// </summary>");
+                WriteLine(@"        /// Obtiene todos los registros de la entidad {0}", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        /// </summary>");
+                WriteLine(@"        /// <returns></returns>");
                 WriteLine(@"        public IList<{0}> GetAll()", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"        {");
                 WriteLine(@"            try");
@@ -93,9 +108,14 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
                 WriteLine(@"            }");
-                WriteLine(@"            return new List<Usuario>();");
+                WriteLine(@"            return new List<{0}>();", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"        }");
                 WriteLine(@"");
+                WriteLine(@"        /// </summary>");
+                WriteLine(@"        /// Inserta un elemento de la entidad {0} en la base de datos", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        /// </summary>");
+                WriteLine(@"        /// <param name=entity></param>");
+                WriteLine(@"        /// <returns></returns>");
                 WriteLine(@"        public {0} Insert({0} entity)", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"        {");
                 WriteLine(@"            try");
@@ -109,7 +129,11 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            return null;");
                 WriteLine(@"        }");
                 WriteLine(@"");
-                WriteLine(@"        public void Delete({0} entity))", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        /// </summary>");
+                WriteLine(@"        /// Borra un {0} de la Base de Datos", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        /// </summary>");
+                WriteLine(@"        /// <param name=entity></param>");
+                WriteLine(@"        public void Delete({0} entity)", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"        {");
                 WriteLine(@"            try");
                 WriteLine(@"            {");
@@ -122,6 +146,11 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            }");
                 WriteLine(@"        }");
                 WriteLine(@"");
+                WriteLine(@"        /// </summary>");
+                WriteLine(@"        /// Actualiza un {0}", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        /// </summary>");
+                WriteLine(@"        /// <param name=entity></param>");
+                WriteLine(@"        /// <returns></returns>");
                 WriteLine(@"        public {0} Update({0} entity)", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"        {");
                 WriteLine(@"            try");
@@ -137,6 +166,11 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            return null;");
                 WriteLine(@"        }");
                 WriteLine(@"");
+                WriteLine(@"        /// </summary>");
+                WriteLine(@"        /// Encuentra {0} en base a un criterio", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        /// </summary>");
+                WriteLine(@"        /// <param name=criteria></param>");
+                WriteLine(@"        /// <returns></returns>");
                 WriteLine(@"        public IList<{0}> Find(string criteria)", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"        {");
                 WriteLine(@"            try");
@@ -147,7 +181,7 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
                 WriteLine(@"            }");
-                WriteLine(@"            return new List<Usuario>();");
+                WriteLine(@"            return new List<{0}>();", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"        }");
                 WriteLine(@"");
 

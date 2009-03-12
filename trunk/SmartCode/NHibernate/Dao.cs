@@ -29,7 +29,7 @@ namespace NHibernateTemplates
             {
                 WriteLine(@"using System;");
                 WriteLine(@"using System.Collections.Generic;");
-                WriteLine(@"using Mds.Architecture.Data", Helper.PascalCase(Project.Code));
+                WriteLine(@"using Mds.Architecture.Data;", Helper.PascalCase(Project.Code));
                 WriteLine(@"using {0}.Core.DataInterfaces;", Helper.PascalCase(Project.Code));
                 WriteLine(@"using {0}.Domain;", Helper.PascalCase(Project.Code));
                 W();
@@ -41,6 +41,11 @@ namespace NHibernateTemplates
                 else
                     WriteLine(@"    public class {0}Dao : AbstractNHibernateDao<{0}, {0}.DomainObjectID>, I{0}Dao", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"    {");
+
+                WriteLine(@"        public {0}Dao(string sessionFactoryConfigPath)", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"            : base(sessionFactoryConfigPath)");
+                WriteLine(@"        {");
+                WriteLine(@"        }");
 
                 WriteLine(@"    }");
                 WriteLine(@"}");

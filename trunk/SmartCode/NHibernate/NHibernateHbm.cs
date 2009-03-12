@@ -30,7 +30,7 @@ namespace NHibernateTemplates
             if (primaryKeyColumns.Count > 0)
             {
                 WriteLine(@"<?xml version=""1.0"" encoding=""utf-8"" ?>");
-                WriteLine(@"<hibernate-mapping xmlns=""urn:nhibernate-mapping-2.2"" assembly=""{0}.Domain"" namespace=""{0}.Domain"">", Helper.PascalCase(Project.Code));
+                WriteLine(@"<hibernate-mapping xmlns=""urn:nhibernate-mapping-2.2"" assembly=""{0}.Core"" namespace=""{0}.Domain"">", Helper.PascalCase(Project.Code));
                 WriteLine(@"    <class name=""{0}"" table=""{1}"" >", Helper.ClassName(Entity.Code), Table.Name);
             
                 // Set ID information
