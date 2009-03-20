@@ -142,6 +142,17 @@ namespace Mds.Architecture.Data
             }
         }
 
-
+        /// <summary>
+        /// Find an entity based on condition string
+        /// </summary>
+        /// <param name="conditionString"></param>
+        /// <returns></returns>
+        public List<T> Find(string conditionString)
+        {
+            if (string.IsNullOrEmpty(conditionString))
+                return (List<T>)NHibernateSession.CreateCriteria(typeof(T)).List<T>();
+            else
+                return (List<T>)NHibernateSession.CreateQuery(string.Format("From {0} where {1}", typeof(T).Name, conditionString)).List<T>();
+        }
     }
 }
