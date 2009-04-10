@@ -1,0 +1,57 @@
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>Snippets para crear Assembler</Title>
+    <Author>Gerardo Medina</Author>
+    <Shortcut>CrearAssembler</Shortcut>
+    <Description>Código para crear Assembler.</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>Entidad</ID>
+        <ToolTip>Nombre de la Entidad</ToolTip>
+        <Default>Nombre</Default>
+      </Literal>     
+    </Declarations>
+    <Code Language="csharp"> 
+        <![CDATA[
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Medusa.Generico.Domain;
+using Medusa.Generico.DTO;
+
+namespace Medusa.Generico.Assembler
+{
+    public class Assembler
+    {
+        //Convierte un objeto DTO en una Entity de NHibernate, sus propiedades basicas
+        public static $Entidad$ DTOToEntity($Entidad$DTO p$Entidad$DTO)
+        {
+            $Entidad$ rReturn = new $Entidad$();
+
+            //Propiedades....
+
+            return rReturn;
+        }
+        
+
+        //Convierte un objeto Entity de NHibernate en un DTO, sus propiedades basicas
+        public static $Entidad$DTO EntityToDTO($Entidad$ p$Entidad$)
+        {
+            $Entidad$DTO rReturn = new $Entidad$DTO();
+            
+            //Propiedades....
+
+            return rReturn;
+        }
+    }
+}
+
+       ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
