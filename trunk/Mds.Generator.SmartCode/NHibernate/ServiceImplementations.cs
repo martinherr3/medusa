@@ -32,6 +32,8 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"using System.Collections.Generic;");
                 WriteLine(@"using System.Text;");
                 WriteLine(@"using System.Runtime.Serialization;");
+                WriteLine(@"using System.Collections.ObjectModel;");
+                WriteLine(@"using log4net.Config;");
                 WriteLine(@"using {0}.Service.Contract;", Helper.PascalCase(Project.Code));
                 WriteLine(@"using {0}.Core.DataInterfaces;", Helper.PascalCase(Project.Code));
                 WriteLine(@"using {0}.Domain;", Helper.PascalCase(Project.Code));
