@@ -70,8 +70,8 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            catch (Exception e)");
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
+                WriteLine(@"                throw RaiseFault(e)");
                 WriteLine(@"            }");
-                WriteLine(@"            return null;");
                 WriteLine(@"        }");
                 WriteLine(@"");
                 WriteLine(@"        /// </summary>");
@@ -90,8 +90,8 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            catch (Exception e)");
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
+                WriteLine(@"                throw RaiseFault(e)");
                 WriteLine(@"            }");
-                WriteLine(@"            return null;");
                 WriteLine(@"        }");
                 WriteLine(@"");
                 WriteLine(@"        /// </summary>");
@@ -102,13 +102,15 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"        {");
                 WriteLine(@"            try");
                 WriteLine(@"            {");
-                WriteLine(@"                return _dao.GetAll();");
+                WriteLine(@"                IList<{0}> list = new List<{0}>();", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"                list = _dao.GetAll();");
+                WriteLine(@"                return list;");
                 WriteLine(@"            }");
                 WriteLine(@"            catch (Exception e)");
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
+                WriteLine(@"                throw RaiseFault(e)");
                 WriteLine(@"            }");
-                WriteLine(@"            return new List<{0}>();", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"        }");
                 WriteLine(@"");
                 WriteLine(@"        /// </summary>");
@@ -125,8 +127,8 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            catch (Exception e)");
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
+                WriteLine(@"                throw RaiseFault(e)");
                 WriteLine(@"            }");
-                WriteLine(@"            return null;");
                 WriteLine(@"        }");
                 WriteLine(@"");
                 WriteLine(@"        /// </summary>");
@@ -143,6 +145,7 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            catch (Exception e)");
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
+                WriteLine(@"                throw RaiseFault(e)");
                 WriteLine(@"            }");
                 WriteLine(@"        }");
                 WriteLine(@"");
@@ -162,8 +165,8 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            catch (Exception e)");
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
+                WriteLine(@"                throw RaiseFault(e)");
                 WriteLine(@"            }");
-                WriteLine(@"            return null;");
                 WriteLine(@"        }");
                 WriteLine(@"");
                 WriteLine(@"        /// </summary>");
@@ -175,13 +178,15 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"        {");
                 WriteLine(@"            try");
                 WriteLine(@"            {");
-                WriteLine(@"                return _dao.Find(criteria);");
+                WriteLine(@"                IList<{0}> list = new List<{0}>();", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"                list = _dao.Find(criteria);");
+                WriteLine(@"                return list;");
                 WriteLine(@"            }");
                 WriteLine(@"            catch (Exception e)");
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
+                WriteLine(@"                throw RaiseFault(e)");
                 WriteLine(@"            }");
-                WriteLine(@"            return new List<{0}>();", Helper.MakeSingle(Entity.Code));
                 WriteLine(@"        }");
                 WriteLine(@"");
 
