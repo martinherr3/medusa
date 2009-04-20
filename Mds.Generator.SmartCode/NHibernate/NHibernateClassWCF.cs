@@ -34,6 +34,8 @@ namespace NHibernateTemplates
                 WriteLine(@"using System.ServiceModel;");
                 WriteLine(@"using System.Text;");
                 WriteLine(@"using System.Collections.ObjectModel;");
+                WriteLine(@"using NHibernate.Validator;");
+                WriteLine(@"using NHibernate.Validator.Constraints;");
                 WriteLine(@"using Mds.Architecture.Domain;");
                 WriteLine(@"");
                 WriteLine(@"namespace {0}.Domain", Helper.PascalCase(Project.Code));
@@ -236,7 +238,7 @@ namespace NHibernateTemplates
                     {
                         WriteLine("        [DataMember]");
                         WriteLine("        public virtual IList<" + Helper.ClassName(childTable.Code) + "> " + Helper.MakePlural(childTable.Code) + "{");
-                        WriteLine("            get { return _" + Helper.MakePlural(childTable.Code) + "); }");
+                        WriteLine("            get { return _" + Helper.MakePlural(childTable.Code) + "; }");
                         WriteLine("            set { _" + Helper.MakePlural(childTable.Code) + " = value; }");
                         WriteLine("        }");
                         W();
@@ -253,7 +255,7 @@ namespace NHibernateTemplates
 
                         WriteLine("        [DataMember]");
                         WriteLine("        public virtual IList<" + Helper.ClassName(childTable.Code) + "> " + Helper.MakePlural(parentSchema.ParentTable.Code) + "{");
-                        WriteLine("            get { return _" + Helper.MakePlural(parentSchema.ParentTable.Code) + "); }");
+                        WriteLine("            get { return _" + Helper.MakePlural(parentSchema.ParentTable.Code) + "; }");
                         WriteLine("            set { _" + Helper.MakePlural(parentSchema.ParentTable.Code) + " = value; }");
                         WriteLine("        }");
                         W();
