@@ -62,7 +62,7 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"        /// </summary>");
                 WriteLine(@"        /// <param name=id></param>");
                 WriteLine(@"        /// <returns></returns>");
-                WriteLine(@"        public {0} GetById(int id)", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        public {0} GetById({1} id)", Helper.MakeSingle(Entity.Code), primaryKeyColumns[0].NetDataType);
                 WriteLine(@"        {");
                 WriteLine(@"            try");
                 WriteLine(@"            {");
@@ -72,7 +72,7 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            catch (Exception e)");
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
-                WriteLine(@"                throw RaiseFault(e)");
+                WriteLine(@"                throw RaiseFault(e);");
                 WriteLine(@"            }");
                 WriteLine(@"        }");
                 WriteLine(@"");
@@ -82,7 +82,7 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"        /// <param name=id></param>");
                 WriteLine(@"        /// <param name=shouldLock></param>");
                 WriteLine(@"        /// <returns></returns>");
-                WriteLine(@"        public {0} GetByIdLock(int id, bool shouldLock)", Helper.MakeSingle(Entity.Code));
+                WriteLine(@"        public {0} GetByIdLock({1} id, bool shouldLock)", Helper.MakeSingle(Entity.Code), primaryKeyColumns[0].NetDataType);
                 WriteLine(@"        {");
                 WriteLine(@"            try");
                 WriteLine(@"            {");
@@ -92,7 +92,7 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            catch (Exception e)");
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
-                WriteLine(@"                throw RaiseFault(e)");
+                WriteLine(@"                throw RaiseFault(e);");
                 WriteLine(@"            }");
                 WriteLine(@"        }");
                 WriteLine(@"");
@@ -111,7 +111,7 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            catch (Exception e)");
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
-                WriteLine(@"                throw RaiseFault(e)");
+                WriteLine(@"                throw RaiseFault(e);");
                 WriteLine(@"            }");
                 WriteLine(@"        }");
                 WriteLine(@"");
@@ -129,7 +129,7 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            catch (Exception e)");
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
-                WriteLine(@"                throw RaiseFault(e)");
+                WriteLine(@"                throw RaiseFault(e);");
                 WriteLine(@"            }");
                 WriteLine(@"        }");
                 WriteLine(@"");
@@ -147,7 +147,7 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            catch (Exception e)");
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
-                WriteLine(@"                throw RaiseFault(e)");
+                WriteLine(@"                throw RaiseFault(e);");
                 WriteLine(@"            }");
                 WriteLine(@"        }");
                 WriteLine(@"");
@@ -167,7 +167,7 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            catch (Exception e)");
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
-                WriteLine(@"                throw RaiseFault(e)");
+                WriteLine(@"                throw RaiseFault(e);");
                 WriteLine(@"            }");
                 WriteLine(@"        }");
                 WriteLine(@"");
@@ -187,7 +187,7 @@ namespace Medusa.NHibernateTemplates
                 WriteLine(@"            catch (Exception e)");
                 WriteLine(@"            {");
                 WriteLine(@"                Log.Error(e.Message, e);");
-                WriteLine(@"                throw RaiseFault(e)");
+                WriteLine(@"                throw RaiseFault(e);");
                 WriteLine(@"            }");
                 WriteLine(@"        }");
                 WriteLine(@"");
