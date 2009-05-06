@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Mds.Architecture.Utils;
+using System.Runtime.Serialization;
 
 namespace Mds.Architecture.Domain
 {
@@ -8,6 +9,9 @@ namespace Mds.Architecture.Domain
     /// For a discussion of this object, see 
     /// http://devlicio.us/blogs/billy_mccafferty/archive/2007/04/25/using-equals-gethashcode-effectively.aspx
     /// </summary>
+    //[Serializable]
+    //[DataContract]
+    [DataContract(IsReference = true)]
     public abstract class DomainObject<IdT>
     {
         protected IdT id = default(IdT);
@@ -17,6 +21,7 @@ namespace Mds.Architecture.Domain
         /// Setter is protected to allow unit tests to set this property via reflection and to allow 
         /// domain objects more flexibility in setting this for those objects with assigned IDs.
         /// </summary>
+        [DataMember]
         public virtual IdT ID
         {
             get { return id; }
