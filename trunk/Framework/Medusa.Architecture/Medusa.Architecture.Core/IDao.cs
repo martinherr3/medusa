@@ -15,5 +15,6 @@ namespace Mds.Architecture.Data
         void Delete(T entity);
         void CommitChanges();
         List<T> Find(string conditionString);
+        T Update(T entity);
     }
 }

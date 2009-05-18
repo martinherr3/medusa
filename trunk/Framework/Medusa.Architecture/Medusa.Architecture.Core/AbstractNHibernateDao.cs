@@ -154,5 +154,17 @@ namespace Mds.Architecture.Data
             else
                 return (List<T>)NHibernateSession.CreateQuery(string.Format("From {0} where {1}", typeof(T).Name, conditionString)).List<T>();
         }
+
+        /// <summary>
+        /// Update an entity
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public T Update(T entity)
+        {
+            NHibernateSession.Update(entity);
+
+            return entity;
+        }
     }
 }
