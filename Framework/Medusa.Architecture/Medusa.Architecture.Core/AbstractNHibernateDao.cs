@@ -106,6 +106,17 @@ namespace Mds.Architecture.Data
         }
 
         /// <summary>
+        /// Update an entity
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public T Update(T entity)
+        {
+            NHibernateSession.Update(entity);
+            return entity;
+        }
+
+        /// <summary>
         /// For entities with automatatically generated IDs, such as identity, SaveOrUpdate may 
         /// be called when saving a new entity.  SaveOrUpdate can also be called to _update_ any 
         /// entity, even if its ID is assigned.
@@ -156,15 +167,49 @@ namespace Mds.Architecture.Data
         }
 
         /// <summary>
-        /// Update an entity
+        /// Execute an HQL Query
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="queryString"></param>
         /// <returns></returns>
-        public T Update(T entity)
+        public List<T> ExecuteQuery(string queryString)
         {
-            NHibernateSession.Update(entity);
+            if (string.IsNullOrEmpty(queryString))
+                return (List<T>)NHibernateSession.CreateCriteria(typeof(T)).List<T>();
+            else
+                return (List<T>)NHibernateSession.CreateQuery(queryString).List<T>();
+        }
 
-            return entity;
+        /// <summary>
+        /// Execute an HQL query defined in hbm.xml file
+        /// </summary>
+        /// <param name="queryName"></param>
+        /// <returns></returns>
+        public List<T> ExecuteNamedQuery(string queryName)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Execute an SQL Query
+        /// </summary>
+        /// <param name="queryString"></param>
+        /// <returns></returns>
+        public List<T> ExecuteSQLQuery(string queryString)
+        {
+            if (string.IsNullOrEmpty(queryString))
+                return (List<T>)NHibernateSession.CreateCriteria(typeof(T)).List<T>();
+            else
+                return (List<T>)NHibernateSession.CreateSQLQuery(queryString).List<T>();
+        }
+
+        /// <summary>
+        /// Execute a named SQL query defined in hbm.xml file
+        /// </summary>
+        /// <param name="queryName"></param>
+        /// <returns></returns>
+        public List<T> ExecuteNamedSQLQuery(string queryName)
+        {
+            throw new NotImplementedException();
         }
     }
 }
