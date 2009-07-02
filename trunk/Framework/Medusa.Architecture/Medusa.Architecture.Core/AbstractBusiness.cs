@@ -82,6 +82,15 @@ namespace Mds.Architecture.Business
             dao.CommitChanges();
         }
 
+        /// <summary>
+        /// Filter the entity for the primitives types
+        /// </summary>
+        /// <returns></returns>
+        public List<TDomain> Find(string criteria)
+        {
+            return dao.Find(criteria);
+        }
+
         public static ILog Log
         {
             get { return AbstractBusiness<TDao, TDomain, idTDomain>.log; }
