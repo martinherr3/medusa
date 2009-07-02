@@ -163,7 +163,7 @@ namespace Mds.Architecture.Data
             if (string.IsNullOrEmpty(conditionString))
                 return (List<T>)NHibernateSession.CreateCriteria(typeof(T)).List<T>();
             else
-                return (List<T>)NHibernateSession.CreateQuery(string.Format("From {0} where {1}", typeof(T).Name, conditionString)).List<T>();
+                return (List<T>)NHibernateSession.CreateQuery(string.Format("From {0} e where {1}", typeof(T).Name, conditionString)).List<T>();
         }
 
         /// <summary>
