@@ -7,6 +7,8 @@ using NHibernate;
 using NHibernate.Cache;
 using NHibernate.Cfg;
 using Mds.Architecture.Utils;
+using log4net;
+using Mds.Architecture.Core.Context;
 
 namespace Mds.Architecture.Data
 {
@@ -18,6 +20,10 @@ namespace Mds.Architecture.Data
     /// </summary>
     public sealed class NHibernateSessionManager
     {
+
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+
         #region Thread-safe, lazy Singleton
 
         /// <summary>
@@ -47,6 +53,7 @@ namespace Mds.Architecture.Data
 
         #endregion
 
+
         /// <summary>
         /// This method attempts to find a session factory stored in <see cref="sessionFactories" />
         /// via its name; if it can't be found it creates a new one and adds it the hashtable.
@@ -64,6 +71,7 @@ namespace Mds.Architecture.Data
                 Check.Require(File.Exists(sessionFactoryConfigPath),
                     "The config file at '" + sessionFactoryConfigPath + "' could not be found");
 
+                log.Info("Creando NHibernate Session Factory para: " + sessionFactoryConfigPath);
                 Configuration cfg = new Configuration();
                 cfg.Configure(sessionFactoryConfigPath);
 
@@ -104,9 +112,12 @@ namespace Mds.Architecture.Data
         /// it gets invoked from other public methods.
         /// </summary>
         private ISession GetSessionFrom(string sessionFactoryConfigPath, IInterceptor interceptor) {
+            log.Info("Obteniendo NHibernate session del contexto...");
             ISession session = (ISession)ContextSessions[sessionFactoryConfigPath];
 
             if (session == null) {
+
+                log.Info("No se pudo obtener NHibernate session del contexto, abrir nueva session...");
                 if (interceptor != null) {
                     session = GetSessionFactoryFor(sessionFactoryConfigPath).OpenSession(interceptor);
                 }
@@ -114,6 +125,7 @@ namespace Mds.Architecture.Data
                     session = GetSessionFactoryFor(sessionFactoryConfigPath).OpenSession();
                 }
 
+                log.Info("Guardando NHibernate session en el contexto...");
                 ContextSessions[sessionFactoryConfigPath] = session;
             }
 
@@ -128,6 +140,7 @@ namespace Mds.Architecture.Data
         public void CloseSessionOn(string sessionFactoryConfigPath) {
             ISession session = (ISession)ContextSessions[sessionFactoryConfigPath];
 
+            log.Info("Cerrando NHibernate session...");
             if (session != null && session.IsOpen) {
                 session.Flush();
                 session.Close();
@@ -139,6 +152,7 @@ namespace Mds.Architecture.Data
         public ITransaction BeginTransactionOn(string sessionFactoryConfigPath) {
             ITransaction transaction = (ITransaction)ContextTransactions[sessionFactoryConfigPath];
 
+            log.Info("Comenzando NHibernate transaction...");
             if (transaction == null) {
                 transaction = GetSessionFrom(sessionFactoryConfigPath).BeginTransaction();
                 ContextTransactions.Add(sessionFactoryConfigPath, transaction);
@@ -150,6 +164,7 @@ namespace Mds.Architecture.Data
         public void CommitTransactionOn(string sessionFactoryConfigPath) {
             ITransaction transaction = (ITransaction)ContextTransactions[sessionFactoryConfigPath];
 
+            log.Info("Finalizando NHibernate transaction...");
             try {
                 if (HasOpenTransactionOn(sessionFactoryConfigPath)) {
                     transaction.Commit();
@@ -171,6 +186,7 @@ namespace Mds.Architecture.Data
         public void RollbackTransactionOn(string sessionFactoryConfigPath) {
             ITransaction transaction = (ITransaction)ContextTransactions[sessionFactoryConfigPath];
 
+            log.Info("Rollback NHibernate transaction...");
             try {
                 if (HasOpenTransactionOn(sessionFactoryConfigPath)) {
                     transaction.Rollback();
@@ -216,13 +232,25 @@ namespace Mds.Architecture.Data
         /// </summary>
         private Hashtable ContextSessions {
             get {
-                if (IsInWebContext()) {
+                if(IsInWcfContext())
+                {
+                    log.Info("Wcf context...");
+                    if (MdsWcfContext.Current.Items[SESSION_KEY] == null)
+                        MdsWcfContext.Current.Items[SESSION_KEY] = new Hashtable();
+
+                    return (Hashtable)MdsWcfContext.Current.Items[SESSION_KEY];
+                }
+                if(IsInWebContext()) 
+                {
+                    log.Info("Web context...");
                     if (HttpContext.Current.Items[SESSION_KEY] == null)
                         HttpContext.Current.Items[SESSION_KEY] = new Hashtable();
 
                     return (Hashtable)HttpContext.Current.Items[SESSION_KEY];
                 }
-                else {
+                else 
+                {
+                    log.Info("Call context...");
                     if (CallContext.GetData(SESSION_KEY) == null)
                         CallContext.SetData(SESSION_KEY, new Hashtable());
 
@@ -231,9 +259,16 @@ namespace Mds.Architecture.Data
             }
         }
 
-        private bool IsInWebContext() {
+        private bool IsInWebContext() 
+        {
             return HttpContext.Current != null;
         }
+
+        private bool IsInWcfContext()
+        {
+            return MdsWcfContext.Current != null;
+        }
+
 
         private Hashtable sessionFactories = new Hashtable();
         private const string TRANSACTION_KEY = "CONTEXT_TRANSACTIONS";

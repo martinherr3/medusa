@@ -19,6 +19,6 @@ namespace Mds.Architecture.Data
         List<T> ExecuteQuery(string queryString);
         List<T> ExecuteNamedQuery(string queryName);
         List<T> ExecuteSQLQuery(string queryString);
-        List<T> ExecuteNamedSQLQuery(string queryName);
+        List<T> ExecuteNamedSQLQuery(string queryString);
     }
 }
