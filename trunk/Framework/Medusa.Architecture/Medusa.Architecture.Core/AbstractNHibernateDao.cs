@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using NHibernate;
-using NHibernate.Expression;
 using Mds.Architecture.Utils;
 using log4net;
+using NHibernate.Criterion;
 
 namespace Mds.Architecture.Data
 {
@@ -20,6 +20,7 @@ namespace Mds.Architecture.Data
 
         /// <param name="sessionFactoryConfigPath">Fully qualified path of the session factory's config file</param>
         public AbstractNHibernateDao(string sessionFactoryConfigPath) {
+
             Check.Require(! string.IsNullOrEmpty(sessionFactoryConfigPath),
                 "sessionFactoryConfigPath may not be null nor empty");
 
@@ -30,15 +31,24 @@ namespace Mds.Architecture.Data
         /// Loads an instance of type T from the DB based on its ID.
         /// </summary>
         public T GetById(IdT id, bool shouldLock) {
+            
             T entity;
 
-            if (shouldLock) {
-                entity = (T)NHibernateSession.Load(persitentType, id, LockMode.Upgrade);
+            try
+            {
+                if (shouldLock)
+                {
+                    entity = (T)NHibernateSession.Load(persitentType, id, LockMode.Upgrade);
+                }
+                else
+                {
+                    entity = (T)NHibernateSession.Load(persitentType, id);
+                }
             }
-            else {
-                entity = (T)NHibernateSession.Load(persitentType, id);
+            finally
+            {
+                NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
             }
-
             return entity;
         }
 
@@ -54,26 +64,50 @@ namespace Mds.Architecture.Data
         /// If no <see cref="ICriterion" /> is supplied, this behaves like <see cref="GetAll" />.
         /// </summary>
         public List<T> GetByCriteria(params ICriterion[] criterion) {
-            ICriteria criteria = NHibernateSession.CreateCriteria(persitentType);
 
-            foreach (ICriterion criterium in criterion) {
-                criteria.Add(criterium);
+            try
+            {
+                ICriteria criteria = NHibernateSession.CreateCriteria(persitentType);
+
+                foreach (ICriterion criterium in criterion)
+                {
+                    criteria.Add(criterium);
+                }
+                return criteria.List<T>() as List<T>;
             }
-
-            return criteria.List<T>() as List<T>;
+            finally
+            {
+                NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
+            }     
         }
 
+        /// <summary>
+        /// Looks for a single instance using the example provided.
+        /// </summary>
+        /// <param name="exampleInstance"></param>
+        /// <param name="propertiesToExclude"></param>
+        /// <returns></returns>
         public List<T> GetByExample(T exampleInstance, params string[] propertiesToExclude) {
-            ICriteria criteria = NHibernateSession.CreateCriteria(persitentType);
-            Example example = Example.Create(exampleInstance);
 
-            foreach (string propertyToExclude in propertiesToExclude) {
-                example.ExcludeProperty(propertyToExclude);
+            List<T> list;
+            try
+            {
+                ICriteria criteria = NHibernateSession.CreateCriteria(persitentType);
+                Example example = Example.Create(exampleInstance);
+
+                foreach (string propertyToExclude in propertiesToExclude)
+                {
+                    example.ExcludeProperty(propertyToExclude);
+                }
+
+                criteria.Add(example);
+                list = criteria.List<T>() as List<T>;
             }
-
-            criteria.Add(example);
-
-            return criteria.List<T>() as List<T>;
+            finally
+            {
+                NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
+            }
+            return list;
         }
 
         /// <summary>
@@ -81,16 +115,28 @@ namespace Mds.Architecture.Data
         /// </summary>
         /// <exception cref="NonUniqueResultException" />
         public T GetUniqueByExample(T exampleInstance, params string[] propertiesToExclude) {
-            List<T> foundList = GetByExample(exampleInstance, propertiesToExclude);
 
-            if (foundList.Count > 1) {
+            List<T> foundList;
+            try
+            {
+                foundList = GetByExample(exampleInstance, propertiesToExclude);
+            }
+            finally
+            {
+                NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
+            }
+
+            if (foundList.Count > 1)
+            {
                 throw new NonUniqueResultException(foundList.Count);
             }
 
-            if (foundList.Count > 0) {
+            if (foundList.Count > 0)
+            {
                 return foundList[0];
             }
-            else {
+            else
+            {
                 return default(T);
             }
         }
@@ -100,19 +146,26 @@ namespace Mds.Architecture.Data
         /// See http://www.hibernate.org/hib_docs/reference/en/html/mapping.html#mapping-declaration-id-assigned.
         /// </summary>
         public T Save(T entity) {
-            NHibernateSession.Save(entity);
-            
-            return entity;
-        }
 
-        /// <summary>
-        /// Update an entity
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        public T Update(T entity)
-        {
-            NHibernateSession.Update(entity);
+            using (ITransaction trans = NHibernateSession.BeginTransaction())
+            {
+                try
+                {
+                    NHibernateSession.Save(entity);
+                    NHibernateSession.Flush();
+                    trans.Commit();
+                }
+                catch (HibernateException)
+                {
+                    trans.Rollback();
+                    NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
+                    throw;  
+                }
+                finally
+                {
+                    NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
+                }
+            }
             return entity;
         }
 
@@ -122,13 +175,54 @@ namespace Mds.Architecture.Data
         /// entity, even if its ID is assigned.
         /// </summary>
         public T SaveOrUpdate(T entity) {
-            NHibernateSession.SaveOrUpdate(entity);
-            
+
+            using (ITransaction trans = NHibernateSession.BeginTransaction())
+            {
+                try
+                {
+                    NHibernateSession.SaveOrUpdate(entity);
+                    NHibernateSession.Flush();
+                    trans.Commit();
+                }
+                catch (HibernateException)
+                {
+                    trans.Rollback();
+                    NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
+                    throw;  
+                }
+                finally
+                {
+                    NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
+                }
+            }
             return entity;
         }
 
+        /// <summary>
+        /// Delete an entity from database
+        /// </summary>
+        /// <param name="entity"></param>
         public void Delete(T entity) {
-            NHibernateSession.Delete(entity);
+                    
+            using (ITransaction trans = NHibernateSession.BeginTransaction())
+            {
+                try
+                {
+                   NHibernateSession.Delete(entity);
+                   NHibernateSession.Flush();
+                   trans.Commit();                  
+                }
+                catch (HibernateException)
+                {  
+                    trans.Rollback();
+                    NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
+                    throw;     
+                }
+                finally 
+                {
+                    NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
+                }              
+            }  
         }
 
         /// <summary>
@@ -138,18 +232,38 @@ namespace Mds.Architecture.Data
             if (NHibernateSessionManager.Instance.HasOpenTransactionOn(SessionFactoryConfigPath)) {
                 NHibernateSessionManager.Instance.CommitTransactionOn(SessionFactoryConfigPath);
             }
-            else {
+            else{
                 // If there's no transaction, just flush the changes
                 NHibernateSessionManager.Instance.GetSessionFrom(SessionFactoryConfigPath).Flush();
             }
         }
 
         /// <summary>
-        /// Exposes the ISession used within the DAO.
+        /// Update an entity
         /// </summary>
-        private ISession NHibernateSession {
-            get {
-                return NHibernateSessionManager.Instance.GetSessionFrom(SessionFactoryConfigPath);
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public T Update(T entity)
+        {
+            using (ITransaction trans = NHibernateSession.BeginTransaction())
+            {
+                try
+                {
+                    NHibernateSession.Update(entity);
+                    NHibernateSession.Flush();
+                    trans.Commit();                    
+                }
+                catch (HibernateException)
+                {
+                    trans.Rollback();
+                    NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
+                    throw;
+                }
+                finally
+                {
+                    NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
+                }
+                return entity;
             }
         }
 
@@ -160,10 +274,19 @@ namespace Mds.Architecture.Data
         /// <returns></returns>
         public List<T> Find(string conditionString)
         {
-            if (string.IsNullOrEmpty(conditionString))
-                return (List<T>)NHibernateSession.CreateCriteria(typeof(T)).List<T>();
-            else
-                return (List<T>)NHibernateSession.CreateQuery(string.Format("From {0} e where {1}", typeof(T).Name, conditionString)).List<T>();
+            List<T> list;
+            try
+            {
+                if (string.IsNullOrEmpty(conditionString))
+                    list = (List<T>)NHibernateSession.CreateCriteria(typeof(T)).List<T>();
+                else
+                    list = (List<T>)NHibernateSession.CreateQuery(string.Format("From {0} e where {1}", typeof(T).Name, conditionString)).List<T>();
+            }
+            finally
+            {
+                NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
+            }
+            return list;
         }
 
         /// <summary>
@@ -173,10 +296,19 @@ namespace Mds.Architecture.Data
         /// <returns></returns>
         public List<T> ExecuteQuery(string queryString)
         {
-            if (string.IsNullOrEmpty(queryString))
-                return (List<T>)NHibernateSession.CreateCriteria(typeof(T)).List<T>();
-            else
-                return (List<T>)NHibernateSession.CreateQuery(queryString).List<T>();
+            List<T> list;
+            try
+            {
+                if (string.IsNullOrEmpty(queryString))
+                    list = (List<T>)NHibernateSession.CreateCriteria(typeof(T)).List<T>();
+                else
+                    list = (List<T>)NHibernateSession.CreateQuery(queryString).List<T>();
+            }
+            finally
+            {
+                NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
+            }
+            return list;
         }
 
         /// <summary>
@@ -190,26 +322,47 @@ namespace Mds.Architecture.Data
         }
 
         /// <summary>
-        /// Execute an SQL Query
+        /// Execute a SQL Query
         /// </summary>
         /// <param name="queryString"></param>
         /// <returns></returns>
         public List<T> ExecuteSQLQuery(string queryString)
         {
-            if (string.IsNullOrEmpty(queryString))
-                return (List<T>)NHibernateSession.CreateCriteria(typeof(T)).List<T>();
-            else
-                return (List<T>)NHibernateSession.CreateSQLQuery(queryString).List<T>();
+            List<T> list;
+            try
+            {
+                if (string.IsNullOrEmpty(queryString))
+                    list = (List<T>)NHibernateSession.CreateCriteria(typeof(T)).List<T>();
+                else
+                    list = (List<T>)NHibernateSession.CreateSQLQuery(queryString).List<T>();
+            }
+            finally
+            {
+                NHibernateSessionManager.Instance.CloseSessionOn(SessionFactoryConfigPath);
+            }
+            return list;
         }
 
         /// <summary>
-        /// Execute a named SQL query defined in hbm.xml file
+        /// Execute a named SQL Query
         /// </summary>
-        /// <param name="queryName"></param>
+        /// <param name="queryString"></param>
         /// <returns></returns>
-        public List<T> ExecuteNamedSQLQuery(string queryName)
+        public List<T> ExecuteNamedSQLQuery(string queryString)
         {
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// Exposes the ISession used within the DAO.
+        /// </summary>
+        protected ISession NHibernateSession
+        {
+            get
+            {
+                return NHibernateSessionManager.Instance.GetSessionFrom(SessionFactoryConfigPath);
+            }
+        }
+
     }
 }
