@@ -5,6 +5,8 @@ using NHibernate.Validator;
 using System.Text;
 using NHibernate.Validator.Engine;
 using NHibernate.Validator.Exceptions;
+using System.Collections.Generic;
+using NHibernate.Proxy;
 
 namespace Suricato.Winforms.Validation
 {
@@ -29,28 +31,37 @@ namespace Suricato.Winforms.Validation
         /// <returns></returns>
         public String GetInvalidMessage(object entity)
         {
-            InvalidValue[] errors = GetInvalidValues(entity);
+            if (entity is INHibernateProxy)
+            {
+                ILazyInitializer init = ((INHibernateProxy)entity).HibernateLazyInitializer;
+                entity = init.GetImplementation();
+            }
+
+            IEnumerable<InvalidValue> errors = GetInvalidValues(entity);
             StringBuilder sb = new StringBuilder();
             sb.Append("La operación no pudo ser realizada, los siguientes valores invalidos fueron encontrados:\n");
+            int i = 0;
 
-            if (errors.Length > 0)
+            foreach (InvalidValue error in errors)
             {
-                foreach (InvalidValue error in errors)
+                string property = error.PropertyName;
+                if (property.StartsWith("Id", StringComparison.CurrentCulture))
                 {
-                    string property = error.PropertyName;
-                    if (property.StartsWith("Id", StringComparison.CurrentCulture))
-                    {
-                        property = property.Substring(2);
-                    }
-                    sb.Append("\n");
-                    sb.Append(property);
-                    sb.Append(": ");
-                    sb.Append(error.Message);                  
+                    property = property.Substring(2);
                 }
+                sb.Append("\n");
+                sb.Append(property);
+                sb.Append(": ");
+                sb.Append(error.Message);
+                i++;
+            }
 
+            if (i > 0)
+            {
                 return sb.ToString();
             }
-            return String.Empty;
+
+            return String.Empty;       
         }
 
         /// <summary>
@@ -58,7 +69,7 @@ namespace Suricato.Winforms.Validation
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public InvalidValue[] GetInvalidValues(object entity)
+        public IEnumerable<InvalidValue> GetInvalidValues(object entity)
         {
             ClassValidator validator = new ClassValidator(entity.GetType());
             
@@ -71,7 +82,13 @@ namespace Suricato.Winforms.Validation
         /// <param name="entity"></param>
         /// <returns></returns>
         public bool IsValid(object entity)
-        {   
+        {
+            if (entity is INHibernateProxy)
+            {
+                ILazyInitializer init = ((INHibernateProxy)entity).HibernateLazyInitializer;
+                entity = init.GetImplementation();
+            }
+
             ClassValidator validator = new ClassValidator(entity.GetType());
             if (validator.HasValidationRules)
             {
@@ -80,7 +97,7 @@ namespace Suricato.Winforms.Validation
                     validator.AssertValid(entity);
                     return true;
                 }
-                catch (InvalidStateException ex)
+                catch (InvalidStateException)
                 {
                     return false;
                 }
@@ -96,6 +113,12 @@ namespace Suricato.Winforms.Validation
         /// <returns></returns>
         public bool IsValid(object entity, System.Type type)
         {
+            if (entity is INHibernateProxy)
+            {
+                ILazyInitializer init = ((INHibernateProxy)entity).HibernateLazyInitializer;
+                entity = init.GetImplementation();
+            }
+
             ClassValidator validator = new ClassValidator(type);
             if (validator.HasValidationRules)
             {
@@ -104,7 +127,7 @@ namespace Suricato.Winforms.Validation
                     validator.AssertValid(entity);
                     return true;
                 }
-                catch(InvalidStateException ex)
+                catch(InvalidStateException)
                 {
                     return false;
                 }

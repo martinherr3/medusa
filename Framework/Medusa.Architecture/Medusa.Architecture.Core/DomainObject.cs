@@ -15,6 +15,8 @@ namespace Mds.Architecture.Domain
     public abstract class DomainObject<IdT>
     {
         protected IdT id = default(IdT);
+        protected System.Int64 _version;
+        protected System.DateTime _timeStamp;
 
         /// <summary>
         /// ID may be of type string, int, custom type, etc.
@@ -27,6 +29,26 @@ namespace Mds.Architecture.Domain
             get { return id; }
             //protected set { id = value; }
             set { id = value; }
+        }
+
+        /// <summary>
+        /// Version member to handle the concurrency
+        /// </summary>
+        [DataMember]
+        public virtual System.Int64 Version
+        {
+            get { return _version; }
+            set { _version = value; }
+        }
+
+        /// <summary>
+        /// Timestamp member to handle the concurrency
+        /// </summary>
+        [DataMember]
+        public virtual System.DateTime TimeStamp
+        {
+            get { return _timeStamp; }
+            set { _timeStamp = value; }
         }
 
         public override sealed bool Equals(object obj)

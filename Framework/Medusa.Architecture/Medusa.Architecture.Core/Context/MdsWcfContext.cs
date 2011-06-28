@@ -27,18 +27,31 @@ namespace Mds.Architecture.Core.Context
             set { nHibernateSession = value; }
         }
 
+        /// <summary>
+        /// Coleccion para almacenar informacion en el contexto
+        /// </summary>
         public IDictionary Items
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Retorna el contexto WCF actual, si no existe retorna null.
+        /// </summary>
         public static MdsWcfContext Current
         {
             get
             {
-                log.Info("Getting current Mudusa WCF custom context...");
-                return OperationContext.Current.Extensions.Find<MdsWcfContext>();
+                try
+                {
+                    log.Info("Getting current Mudusa WCF custom context...");
+                    return OperationContext.Current.Extensions.Find<MdsWcfContext>();
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
             }
         }
 

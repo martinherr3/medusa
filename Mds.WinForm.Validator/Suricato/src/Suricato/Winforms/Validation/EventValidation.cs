@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using NHibernate.Validator;
 using Suricato.Winforms.Validation.ValidatorControls;
 using NHibernate.Validator.Engine;
+using System.Collections.Generic;
 
 namespace Suricato.Winforms.Validation
 {
@@ -30,12 +31,16 @@ namespace Suricato.Winforms.Validation
 
 			IControlValuable controlValuable = vvtor.Resolver.GetControlValuable(sender);
 
-			InvalidValue[] errors =
-				vtor.GetPotentialInvalidValues(GetPropertyName((Control) sender),controlValuable.GetValue((Control)sender));
+			IEnumerable<InvalidValue> errors = vtor.GetPotentialInvalidValues(GetPropertyName((Control) sender),controlValuable.GetValue((Control)sender));
+            int i = 0;
 
-			if (errors.Length > 0)
-				errorProvider.SetError((TextBox) sender, errors[0].Message);
-			else
+            foreach (InvalidValue error in errors)
+            {
+                errorProvider.SetError((TextBox)sender, error.Message);
+                i++;
+            }
+
+			if (i == 0)
 				errorProvider.SetError((TextBox) sender, string.Empty);
 		}
 
